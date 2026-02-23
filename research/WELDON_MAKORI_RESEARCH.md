@@ -21,16 +21,12 @@
 
 | Platform | URL | Notes |
 |----------|-----|-------|
-| **LinkedIn** | [linkedin.com/in/weldon-makori-990826216](https://ke.linkedin.com/in/weldon-makori-990826216) | Kenya-based LinkedIn (possibly original) |
-| **LinkedIn** | [linkedin.com/in/weldon-makori-0b297b247](https://www.linkedin.com/in/weldon-makori-0b297b247) | Second profile found |
+| **LinkedIn** | [linkedin.com/in/weldonmakori](https://www.linkedin.com/in/weldonmakori/) | Primary profile |
 | **X (Twitter)** | [@makori_weldon](https://x.com/makori_weldon) | Personal X account |
-| **X (Twitter)** | [@makoriweldon](https://twitter.com/makoriweldon) | Alternate handle found |
-| **Instagram** | [@makoriweldon508](https://www.instagram.com/makoriweldon508/) | 5 followers, 4 following, 0 posts |
-| **Facebook** | [weldon.makori.58](https://www.facebook.com/weldon.makori.58/) | Facebook profile |
-| **Facebook** | [weldon.makori.16](https://www.facebook.com/weldon.makori.16) | Alternate Facebook profile |
+| **Instagram** | [@actuallyweldon](https://www.instagram.com/actuallyweldon/) | Instagram profile |
+| **Facebook** | [actuallyweldon](https://www.facebook.com/actuallyweldon) | Facebook profile |
 | **Hudl** | [hudl.com/profile/2738727](https://www.hudl.com/profile/2738727/Weldon-Makori) | Sports profile, joined July 22, 2013 |
 | **GitHub (Org)** | [github.com/ever-just](https://github.com/ever-just) | Everjust GitHub organization |
-| **GitHub (Org)** | [github.com/just-every](https://github.com/just-every) | JustEvery GitHub organization |
 | **Custom AI Studio Docs** | [docs.customaistudio.io](https://docs.customaistudio.io) | Author of articles |
 | **Custom AI Studio X** | [@customai_studio](https://x.com/customai_studio) | Company X account |
 

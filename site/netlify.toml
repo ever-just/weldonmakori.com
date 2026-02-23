@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Redirect weldon.lol to weldonmakori.com
+[[redirects]]
+  from = "https://weldon.lol/*"
+  to = "https://weldonmakori.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.weldon.lol/*"
+  to = "https://weldonmakori.com/:splat"
+  status = 301
+  force = true
