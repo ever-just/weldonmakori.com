@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- End Google Analytics 4 -->
+    
     <!-- Primary Meta Tags -->
-    <title>Weldon Makori - Personal Website</title>
-    <meta name="title" content="Weldon Makori - Personal Website">
-    <meta name="description" content="Welcome to Weldon Makori's personal website. Explore my work, projects, education, and professional journey.">
-    <meta name="keywords" content="Weldon Makori, portfolio, resume, projects, blog, professional">
+    <title>Weldon Makori | Personal Website, Portfolio & Resume</title>
+    <meta name="title" content="Weldon Makori | Personal Website, Portfolio & Resume">
+    <meta name="description" content="Weldon Makori's official personal website. Discover Weldon's professional work, projects, education, blog posts, and gallery. Connect with Weldon Makori.">
+    <meta name="keywords" content="Weldon, Weldon Makori, Makori, weldonmakori.com, weldon.lol, portfolio, resume, CV, projects, blog, professional, personal website">
     <meta name="author" content="Weldon Makori">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://weldonmakori.com/">
@@ -16,17 +34,19 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://weldonmakori.com/">
-    <meta property="og:title" content="Weldon Makori - Personal Website">
-    <meta property="og:description" content="Welcome to Weldon Makori's personal website. Explore my work, projects, education, and professional journey.">
+    <meta property="og:title" content="Weldon Makori | Personal Website, Portfolio & Resume">
+    <meta property="og:description" content="Weldon Makori's official personal website. Discover Weldon's professional work, projects, education, blog posts, and gallery.">
     <meta property="og:image" content="https://weldonmakori.com/og-image.jpg">
     <meta property="og:site_name" content="Weldon Makori">
+    <meta property="og:locale" content="en_US">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://weldonmakori.com/">
-    <meta property="twitter:title" content="Weldon Makori - Personal Website">
-    <meta property="twitter:description" content="Welcome to Weldon Makori's personal website. Explore my work, projects, education, and professional journey.">
+    <meta property="twitter:title" content="Weldon Makori | Personal Website, Portfolio & Resume">
+    <meta property="twitter:description" content="Weldon Makori's official personal website. Discover Weldon's professional work, projects, education, blog posts, and gallery.">
     <meta property="twitter:image" content="https://weldonmakori.com/og-image.jpg">
+    <meta name="twitter:creator" content="@weldonmakori">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -37,12 +57,36 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Weldon Makori",
+      "givenName": "Weldon",
+      "familyName": "Makori",
       "url": "https://weldonmakori.com",
       "sameAs": [
-        "https://weldon.lol"
+        "https://weldon.lol",
+        "https://www.weldonmakori.com"
       ],
       "jobTitle": "Professional",
-      "description": "Personal website showcasing work, projects, education, and professional journey."
+      "description": "Weldon Makori - Personal website showcasing professional work, projects, education, and creative journey.",
+      "knowsAbout": ["Technology", "Projects", "Education", "Professional Development"],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://weldonmakori.com/"
+      }
+    }
+    </script>
+    
+    <!-- Additional Structured Data for WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Weldon Makori",
+      "alternateName": ["Weldon", "Makori", "weldonmakori.com", "weldon.lol"],
+      "url": "https://weldonmakori.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://weldonmakori.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
     <style>
@@ -103,10 +147,15 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <main>
-        <div class="container">
-            <h1>Hi I'm Weldon!</h1>
-            <p>Welcome to my personal website</p>
+        <div class="container" itemscope itemtype="https://schema.org/Person">
+            <h1 itemprop="name">Hi I'm Weldon!</h1>
+            <p itemprop="description">Welcome to <span itemprop="givenName">Weldon</span> <span itemprop="familyName">Makori</span>'s personal website</p>
+            <meta itemprop="url" content="https://weldonmakori.com">
         </div>
     </main>
 </body>
