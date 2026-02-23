@@ -1,0 +1,3 @@
+# Redirect weldon.lol to weldonmakori.com
+https://weldon.lol/* https://weldonmakori.com/:splat 301!
+https://www.weldon.lol/* https://weldonmakori.com/:splat 301!
