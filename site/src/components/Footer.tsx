@@ -4,12 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/", label: "Index" },
-  { href: "/resume", label: "Resume" },
-  { href: "/education", label: "Education" },
+  { href: "/", label: "Home" },
+  { href: "/resume", label: "Work" },
+  { href: "/education", label: "School" },
   { href: "/blog", label: "Blog" },
   { href: "/photos", label: "Photos" },
-  { href: "/contact", label: "Contact" },
+  { href: "/calendar", label: "Calendar" },
+  { href: "/contact", label: "Say Hi" },
 ];
 
 const socials = [
@@ -37,7 +38,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex gap-16">
+          <div className="flex gap-10 sm:gap-16">
             <div>
               <p className="text-[11px] tracking-[0.2em] uppercase text-white/20 mb-4">Pages</p>
               <nav className="flex flex-col gap-3">

@@ -14,6 +14,8 @@ import {
   ArrowLeft,
   Menu,
   X,
+  Settings,
+  Calendar,
 } from "lucide-react";
 import PocketBase from "pocketbase";
 import pbClient from "@/lib/pocketbase";
@@ -36,6 +38,8 @@ const navItems = [
   { href: "/admin/photos", label: "Photos", icon: Image },
   { href: "/admin/events", label: "Events", icon: CalendarDays },
   { href: "/admin/bookings", label: "Bookings", icon: Users },
+  { href: "/admin/calendar", label: "Calendar", icon: Calendar },
+  { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -121,13 +125,29 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               Sign In
             </button>
           </form>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-2 mt-8 text-xs text-white/20 hover:text-white/40 transition-colors"
-          >
-            <ArrowLeft className="w-3 h-3" />
-            Back to site
-          </Link>
+          <div className="flex flex-col items-center mt-6 gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                const resetEmail = prompt("Enter your admin email to reset password:");
+                if (resetEmail) {
+                  pb.collection("_superusers").requestPasswordReset(resetEmail)
+                    .then(() => alert("If that email exists, a reset link has been sent."))
+                    .catch(() => alert("If that email exists, a reset link has been sent."));
+                }
+              }}
+              className="text-xs text-white/15 hover:text-white/30 transition-colors"
+            >
+              Forgot password?
+            </button>
+            <Link
+              href="/"
+              className="flex items-center justify-center gap-2 text-xs text-white/20 hover:text-white/40 transition-colors"
+            >
+              <ArrowLeft className="w-3 h-3" />
+              Back to site
+            </Link>
+          </div>
         </div>
       </div>
     );

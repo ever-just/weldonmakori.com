@@ -4,27 +4,45 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, GraduationCap, Pen, Camera, Mail, type LucideIcon } from "lucide-react";
+import { Home, Briefcase, GraduationCap, Pen, Camera, Mail, CalendarDays, type LucideIcon } from "lucide-react";
+import pb from "@/lib/pocketbase";
 
-const links: { href: string; label: string; icon: LucideIcon }[] = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/resume", label: "Work", icon: Briefcase },
-  { href: "/education", label: "School", icon: GraduationCap },
-  { href: "/blog", label: "Blog", icon: Pen },
-  { href: "/photos", label: "Photos", icon: Camera },
-  { href: "/contact", label: "Say Hi", icon: Mail },
+const allLinks: { href: string; label: string; icon: LucideIcon; settingKey: string }[] = [
+  { href: "/", label: "Home", icon: Home, settingKey: "page_home" },
+  { href: "/resume", label: "Work", icon: Briefcase, settingKey: "page_work" },
+  { href: "/education", label: "School", icon: GraduationCap, settingKey: "page_school" },
+  { href: "/blog", label: "Blog", icon: Pen, settingKey: "page_blog" },
+  { href: "/photos", label: "Photos", icon: Camera, settingKey: "page_photos" },
+  { href: "/calendar", label: "Calendar", icon: CalendarDays, settingKey: "page_calendar" },
+  { href: "/contact", label: "Say Hi", icon: Mail, settingKey: "page_contact" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hiddenPages, setHiddenPages] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  useEffect(() => {
+    pb.collection("site_settings")
+      .getFullList({ filter: 'key ~ "page_"' })
+      .then((records) => {
+        const hidden = new Set<string>();
+        records.forEach((r) => {
+          if (r.value === false) hidden.add(r.key as string);
+        });
+        setHiddenPages(hidden);
+      })
+      .catch(() => {});
+  }, []);
+
+  const links = allLinks.filter((l) => !hiddenPages.has(l.settingKey));
 
   if (pathname.startsWith("/admin")) return null;
 
@@ -42,7 +60,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {links.map((link) => {
             const active = pathname === link.href;
             const Icon = link.icon;
@@ -71,7 +89,7 @@ export default function Header() {
         {/* Mobile */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden flex flex-col gap-1.5 w-8 h-8 items-center justify-center"
+          className="lg:hidden flex flex-col gap-1.5 w-10 h-10 items-center justify-center"
           aria-label="Menu"
         >
           <motion.span
@@ -96,7 +114,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 top-16 bg-[#050505]/98 backdrop-blur-2xl"
+            className="lg:hidden fixed inset-0 top-16 bg-[#050505]/98 backdrop-blur-2xl"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8 -mt-16">
               {links.map((link) => {
