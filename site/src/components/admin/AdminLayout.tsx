@@ -76,7 +76,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center -mt-16">
         <div className="w-5 h-5 border border-white/20 border-t-white/60 rounded-full animate-spin" />
       </div>
     );
@@ -84,7 +84,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (!authenticated) {
     return (
-      <div className="min-h-screen bg-[#050505] flex items-center justify-center px-6">
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center px-6 -mt-16">
         <div className="w-full max-w-sm">
           <div className="text-center mb-10">
             <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-3">Admin</p>
@@ -135,7 +135,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <AdminAuthContext.Provider value={{ pb, logout }}>
-      <div className="min-h-screen bg-[#050505] flex">
+      <div className="min-h-screen bg-[#050505] flex -mt-16">
         {/* Sidebar — Desktop */}
         <aside className="hidden lg:flex flex-col w-56 border-r border-white/[0.06] fixed inset-y-0 left-0 z-40">
           <div className="px-6 py-6 border-b border-white/[0.06]">

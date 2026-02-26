@@ -119,7 +119,8 @@ export default function CalendarPage() {
       });
       setBookingStatus("sent");
       setBookingForm({ name: "", email: "", message: "", preferred_time: "" });
-    } catch {
+    } catch (err) {
+      console.error("Booking error:", err);
       setBookingStatus("error");
     }
   };

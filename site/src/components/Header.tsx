@@ -4,14 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Home, Briefcase, GraduationCap, Pen, Camera, Mail, type LucideIcon } from "lucide-react";
 
-const links = [
-  { href: "/", label: "Index" },
-  { href: "/resume", label: "Resume" },
-  { href: "/education", label: "Education" },
-  { href: "/blog", label: "Blog" },
-  { href: "/photos", label: "Photos" },
-  { href: "/contact", label: "Contact" },
+const links: { href: string; label: string; icon: LucideIcon }[] = [
+  { href: "/", label: "Home", icon: Home },
+  { href: "/resume", label: "Work", icon: Briefcase },
+  { href: "/education", label: "School", icon: GraduationCap },
+  { href: "/blog", label: "Blog", icon: Pen },
+  { href: "/photos", label: "Photos", icon: Camera },
+  { href: "/contact", label: "Say Hi", icon: Mail },
 ];
 
 export default function Header() {
@@ -24,6 +25,8 @@ export default function Header() {
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  if (pathname.startsWith("/admin")) return null;
 
   return (
     <header
@@ -42,14 +45,16 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => {
             const active = pathname === link.href;
+            const Icon = link.icon;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-[13px] tracking-wide uppercase transition-colors duration-300 ${
+                className={`relative inline-flex items-center gap-1.5 text-[13px] tracking-wide uppercase transition-colors duration-300 ${
                   active ? "text-white" : "text-white/40 hover:text-white/70"
                 }`}
               >
+                <Icon size={13} strokeWidth={1.5} className="opacity-60" />
                 {link.label}
                 {active && (
                   <motion.div
@@ -94,18 +99,22 @@ export default function Header() {
             className="md:hidden fixed inset-0 top-16 bg-[#050505]/98 backdrop-blur-2xl"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8 -mt-16">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`text-2xl font-light tracking-wide transition-colors ${
-                    pathname === link.href ? "text-white" : "text-white/30 hover:text-white/60"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {links.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`inline-flex items-center gap-3 text-2xl font-light tracking-wide transition-colors ${
+                      pathname === link.href ? "text-white" : "text-white/30 hover:text-white/60"
+                    }`}
+                  >
+                    <Icon size={20} strokeWidth={1.5} className="opacity-50" />
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

@@ -20,8 +20,9 @@ export default function BlogPostPage() {
   useEffect(() => {
     async function fetchPost() {
       try {
+        const safeSlug = slug.replace(/"/g, '\\"');
         const result = await pb.collection("blog_posts").getList(1, 1, {
-          filter: `slug = "${slug}" && status = "published"`,
+          filter: `slug = "${safeSlug}" && status = "published"`,
         });
         if (result.items.length > 0) {
           setPost(result.items[0]);

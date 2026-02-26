@@ -10,6 +10,7 @@ export default function AdminBlog() {
   const { pb } = useAdmin();
   const [posts, setPosts] = useState<RecordModel[]>([]);
   const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   const load = async () => {
     try {
@@ -32,9 +33,11 @@ export default function AdminBlog() {
     }
     try {
       await pb.collection("blog_posts").update(post.id, data);
+      setMessage({ type: "success", text: `Post ${newStatus === "published" ? "published" : "unpublished"}.` });
       load();
     } catch (err) {
       console.error(err);
+      setMessage({ type: "error", text: "Failed to update post status." });
     }
   };
 
@@ -43,8 +46,10 @@ export default function AdminBlog() {
     try {
       await pb.collection("blog_posts").delete(id);
       setPosts((prev) => prev.filter((p) => p.id !== id));
+      setMessage({ type: "success", text: "Post deleted." });
     } catch (err) {
       console.error(err);
+      setMessage({ type: "error", text: "Failed to delete post." });
     }
   };
 
@@ -58,6 +63,17 @@ export default function AdminBlog() {
 
   return (
     <div>
+      {message && (
+        <div className={`mb-6 px-4 py-3 rounded-sm border text-sm ${
+          message.type === "success"
+            ? "border-green-400/20 bg-green-400/10 text-green-300/80"
+            : "border-red-400/20 bg-red-400/10 text-red-300/80"
+        }`}>
+          {message.text}
+          <button onClick={() => setMessage(null)} className="float-right text-white/30 hover:text-white/60">×</button>
+        </div>
+      )}
+
       <div className="flex items-center justify-between mb-10">
         <div>
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-2">Manage</p>

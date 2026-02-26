@@ -16,6 +16,7 @@ export default function AdminPhotos() {
   const [uploadTitle, setUploadTitle] = useState("");
   const [uploadCaption, setUploadCaption] = useState("");
   const [uploadTags, setUploadTags] = useState("");
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   const load = async () => {
     try {
@@ -41,6 +42,7 @@ export default function AdminPhotos() {
       setPhotos((prev) => prev.map((p) => (p.id === photo.id ? { ...p, visible: !p.visible } : p)));
     } catch (err) {
       console.error(err);
+      setMessage({ type: "error", text: "Failed to update photo visibility." });
     }
   };
 
@@ -49,8 +51,10 @@ export default function AdminPhotos() {
     try {
       await pb.collection("photos").delete(id);
       setPhotos((prev) => prev.filter((p) => p.id !== id));
+      setMessage({ type: "success", text: "Photo deleted." });
     } catch (err) {
       console.error(err);
+      setMessage({ type: "error", text: "Failed to delete photo." });
     }
   };
 
@@ -73,9 +77,12 @@ export default function AdminPhotos() {
       setUploadCaption("");
       setUploadTags("");
       setShowUpload(false);
+      setMessage({ type: "success", text: "Photo uploaded successfully!" });
       load();
     } catch (err) {
       console.error(err);
+      const msg = err instanceof Error ? err.message : String(err);
+      setMessage({ type: "error", text: "Upload failed: " + msg });
     } finally {
       setUploading(false);
     }
@@ -91,6 +98,17 @@ export default function AdminPhotos() {
 
   return (
     <div>
+      {message && (
+        <div className={`mb-6 px-4 py-3 rounded-sm border text-sm ${
+          message.type === "success"
+            ? "border-green-400/20 bg-green-400/10 text-green-300/80"
+            : "border-red-400/20 bg-red-400/10 text-red-300/80"
+        }`}>
+          {message.text}
+          <button onClick={() => setMessage(null)} className="float-right text-white/30 hover:text-white/60">×</button>
+        </div>
+      )}
+
       <div className="flex items-center justify-between mb-10">
         <div>
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-2">Manage</p>

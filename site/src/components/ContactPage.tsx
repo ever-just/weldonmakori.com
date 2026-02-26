@@ -29,7 +29,8 @@ export default function ContactPage() {
       });
       setStatus("sent");
       setForm({ name: "", email: "", subject: "", message: "" });
-    } catch {
+    } catch (err) {
+      console.error("Contact form error:", err);
       setStatus("error");
     }
   };

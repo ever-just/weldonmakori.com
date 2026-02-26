@@ -24,6 +24,7 @@ export default function AdminEvents() {
   const [editing, setEditing] = useState<string | null>(null);
   const [form, setForm] = useState(EMPTY_EVENT);
   const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   const load = async () => {
     try {
@@ -75,9 +76,12 @@ export default function AdminEvents() {
       }
       setShowForm(false);
       setEditing(null);
+      setMessage({ type: "success", text: editing ? "Event updated!" : "Event created!" });
       load();
     } catch (err) {
       console.error(err);
+      const msg = err instanceof Error ? err.message : String(err);
+      setMessage({ type: "error", text: "Failed to save event: " + msg });
     } finally {
       setSaving(false);
     }
@@ -88,8 +92,10 @@ export default function AdminEvents() {
     try {
       await pb.collection("events").delete(id);
       setEvents((prev) => prev.filter((e) => e.id !== id));
+      setMessage({ type: "success", text: "Event deleted." });
     } catch (err) {
       console.error(err);
+      setMessage({ type: "error", text: "Failed to delete event." });
     }
   };
 
@@ -109,6 +115,17 @@ export default function AdminEvents() {
 
   return (
     <div>
+      {message && (
+        <div className={`mb-6 px-4 py-3 rounded-sm border text-sm ${
+          message.type === "success"
+            ? "border-green-400/20 bg-green-400/10 text-green-300/80"
+            : "border-red-400/20 bg-red-400/10 text-red-300/80"
+        }`}>
+          {message.text}
+          <button onClick={() => setMessage(null)} className="float-right text-white/30 hover:text-white/60">×</button>
+        </div>
+      )}
+
       <div className="flex items-center justify-between mb-10">
         <div>
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-2">Manage</p>

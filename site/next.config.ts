@@ -16,15 +16,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "pb.weldonmakori.com",
       },
-    ],
-  },
-  async rewrites() {
-    return [
       {
-        source: "/pb/:path*",
-        destination: "http://142.93.78.220/:path*",
+        protocol: "https",
+        hostname: "weldonmakori.com",
       },
-    ];
+    ],
   },
 };
 

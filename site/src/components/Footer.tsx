@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "Index" },
@@ -17,6 +20,10 @@ const socials = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <footer className="border-t border-white/[0.04]">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
