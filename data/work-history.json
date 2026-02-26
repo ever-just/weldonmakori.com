@@ -1,0 +1,309 @@
+{
+  "workExperience": [
+    {
+      "company": "Custom AI Studio",
+      "companyUrl": "https://customaistudio.io",
+      "position": "Founding Member / COO / Consultant",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "August 2024",
+        "end": "Present"
+      },
+      "type": "Full-time",
+      "responsibilities": [
+        "Grew startup from 2 employees to 16 team members",
+        "Scaled monthly revenue from 4 figures to $100K+",
+        "Implemented AI agents that exponentially improved efficiency and drove growth",
+        "Managed comprehensive HR operations: bi-weekly payroll (ADP), benefits administration, employee records, compliance",
+        "Led full-cycle recruiting: job postings, interviews, offers, onboarding",
+        "Authored Custom AI Studio documentation covering integrations, approach, and Sanctifai"
+      ],
+      "achievements": [
+        "Scaled company revenue by 25x in under 6 months",
+        "Built and managed team of 16 across consulting and operations",
+        "Developed Sanctifai (Human-in-the-loop AI system)"
+      ],
+      "technologies": [
+        "AI Agents",
+        "ADP Payroll",
+        "HR Management Systems",
+        "Documentation Tools",
+        "Sanctifai"
+      ]
+    },
+    {
+      "company": "Marsh McLennan Agency",
+      "companyUrl": "https://marshmma.com",
+      "position": "Business Insurance Intern",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "May 2024",
+        "end": "August 2024"
+      },
+      "type": "Internship",
+      "responsibilities": [
+        "Mentored by and assisted sales operations of the #1 business insurance brokerage globally",
+        "Presented research and provided consultation-based business operation improvements",
+        "Developed local market intelligence report using publicly accessible data",
+        "Provided strategy on how to increase conversion by the local team",
+        "Gained deep knowledge of employee benefits, group insurance packages, and coverage evaluation"
+      ],
+      "achievements": [
+        "Created comprehensive local market intelligence report",
+        "Delivered actionable conversion optimization strategies"
+      ],
+      "technologies": [
+        "Market Research Tools",
+        "Data Analysis",
+        "Insurance Software"
+      ]
+    },
+    {
+      "company": "CapREIT",
+      "companyUrl": null,
+      "position": "Leasing Agent",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "July 2022",
+        "end": "July 2023"
+      },
+      "type": "Full-time",
+      "responsibilities": [
+        "Led lease-up of new 138-unit development from zero to 78% occupancy",
+        "Combined leasing role with property management duties",
+        "Managed tenant relations, tours, applications, and lease signings",
+        "Trained in property management software and fair housing compliance"
+      ],
+      "achievements": [
+        "Achieved 78% occupancy on new development within first year"
+      ],
+      "technologies": [
+        "Yardi",
+        "OneSite",
+        "Knock",
+        "Salesforce",
+        "RentCafe"
+      ]
+    },
+    {
+      "company": "Renewal by Andersen",
+      "companyUrl": "https://renewalbyandersen.com",
+      "position": "Inside Sales Professional",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "February 2021",
+        "end": "July 2022"
+      },
+      "type": "Full-time",
+      "responsibilities": [
+        "Created marketing content for residential home remodeling services",
+        "Conducted sales development for window and door replacement",
+        "Actively acquired new leads and increased conversion from multiple marketing sources",
+        "Managed customer relationships from initial contact through close"
+      ],
+      "achievements": [
+        "Consistently exceeded lead generation targets",
+        "Improved conversion rates across multiple marketing channels"
+      ],
+      "technologies": [
+        "CRM Software",
+        "Marketing Automation",
+        "Sales Tools"
+      ]
+    },
+    {
+      "company": "Sleep Number",
+      "companyUrl": "https://sleepnumber.com",
+      "position": "Marketing Professional",
+      "location": "Minneapolis, MN (Home Office)",
+      "dates": {
+        "start": "November 2019",
+        "end": "August 2020"
+      },
+      "type": "Full-time",
+      "responsibilities": [
+        "Consistently outperformed quarterly and annual company sales goals",
+        "Managed full sales cycle for premium sleep products",
+        "Provided feedback to leadership on diversity & inclusion initiatives",
+        "Built and maintained customer relationships"
+      ],
+      "achievements": [
+        "#1 revenue producer for entire sales organization within 6 months of employment",
+        "Averaged $550K–$650K revenue produced monthly as an individual",
+        "Top performer company-wide"
+      ],
+      "technologies": [
+        "Sales Software",
+        "CRM",
+        "Marketing Tools"
+      ]
+    },
+    {
+      "company": "Tesla Midwest",
+      "companyUrl": "https://tesla.com",
+      "position": "Sales Advisor",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "December 2017",
+        "end": "August 2019"
+      },
+      "type": "Full-time",
+      "responsibilities": [
+        "Electric vehicles and residential solar-energy product sales consultant",
+        "Managed sales funnel utilizing 10+ software platforms",
+        "Planned and executed outbound events and local marketing campaigns",
+        "Trained 10+ new employees in senior role",
+        "Covered 5-state Midwest territory for Model 3 ramp-up"
+      ],
+      "achievements": [
+        "$12M+ annual sales revenue produced as an individual",
+        "Part of start-up team that ramped up Model 3 deliveries in Midwest",
+        "Trained and mentored 10+ new sales advisors"
+      ],
+      "technologies": [
+        "Tesla Sales Platform",
+        "CRM Software",
+        "Multiple Sales Tools (10+ platforms)"
+      ]
+    },
+    {
+      "company": "WellDone Windows",
+      "companyUrl": null,
+      "position": "Co-Owner",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "April 2016",
+        "end": "August 2019"
+      },
+      "type": "Business Owner",
+      "responsibilities": [
+        "Managed window cleaning services for commercial and residential projects",
+        "Led team of 4–6 employees for 3 seasons of full-time employment",
+        "Built subscription-based clientele pipeline of 200+ retained customers",
+        "Handled subcontracting with post-construction cleaning of commercial upgrades",
+        "Managed operations, scheduling, customer relations, and business development"
+      ],
+      "achievements": [
+        "Built 200+ customer subscription base",
+        "Became preferred window cleaning vendor for Lifetime Fitness",
+        "Successfully operated for 3+ years with consistent team"
+      ],
+      "technologies": [
+        "Scheduling Software",
+        "Customer Management",
+        "Business Operations Tools"
+      ]
+    },
+    {
+      "company": "TC Running Company",
+      "companyUrl": null,
+      "position": "Sales Associate",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "August 2015",
+        "end": "July 2017"
+      },
+      "type": "Part-time",
+      "responsibilities": [
+        "Ambassador in running community via events",
+        "Show floor sales representative",
+        "Provided expert product recommendations",
+        "Engaged with local running community"
+      ],
+      "achievements": [
+        "Built strong community presence in Minneapolis running scene"
+      ],
+      "technologies": []
+    },
+    {
+      "company": "Yogurt Sundae",
+      "companyUrl": null,
+      "position": "Store Manager",
+      "location": "Minneapolis, MN",
+      "dates": {
+        "start": "October 2014",
+        "end": "December 2016"
+      },
+      "type": "Full-time",
+      "responsibilities": [
+        "Managed team of 17 part-time employees",
+        "Created and managed store budget",
+        "Handled scheduling, inventory, and operations",
+        "Ensured customer satisfaction and quality standards"
+      ],
+      "achievements": [
+        "Successfully managed team of 17 employees",
+        "Maintained profitable operations through budget management"
+      ],
+      "technologies": [
+        "POS Systems",
+        "Scheduling Software",
+        "Inventory Management"
+      ]
+    }
+  ],
+  "entrepreneurialVentures": [
+    {
+      "name": "Everjust",
+      "type": "Business Corporation (Minnesota)",
+      "role": "Founder",
+      "description": "AI consulting, technology platform development, insurance agency optimization",
+      "status": "Active",
+      "platforms": [
+        "EverJust.dev (Website builder)",
+        "EverJust.chat (Communication platform)",
+        "EverJust Portal (CRM and client management)",
+        "EverJust.Club (Knowledge sharing forum)"
+      ],
+      "investment": "$400K+ in platform development"
+    },
+    {
+      "name": "Custom Agents",
+      "url": "https://customagents.io",
+      "role": "Founder",
+      "description": "Platform for building persistent, customizable AI agents inside iMessage, email, and phone",
+      "status": "In Development",
+      "tiers": [
+        "My Agent (personal)",
+        "Our Agent (team)",
+        "Everyone's Agent (public)"
+      ]
+    },
+    {
+      "name": "Gasolina.ai",
+      "url": "https://gasolina.ai",
+      "role": "Founder",
+      "description": "AI-powered talent management platform for UGC creators and local businesses",
+      "status": "Active",
+      "techStack": [
+        "Next.js 16",
+        "Tailwind CSS 4",
+        "Supabase",
+        "Framer Motion",
+        "GSAP"
+      ]
+    },
+    {
+      "name": "Minnesota.CEO",
+      "url": "https://minnesota.ceo",
+      "role": "Founder",
+      "description": "Platform celebrating Minnesota's business leaders and innovators",
+      "status": "Active",
+      "techStack": [
+        "Next.js 14",
+        "TypeScript",
+        "Tailwind CSS",
+        "Three.js",
+        "Framer Motion",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "SMS (Strangers Meeting Strangers)",
+      "role": "Technical Architect & Co-Founder",
+      "description": "Platform for community gatherings - 'Airbnb for gatherings'",
+      "status": "In Development",
+      "concept": "Text-based interface for hosting and attending stranger gatherings"
+    }
+  ]
+}

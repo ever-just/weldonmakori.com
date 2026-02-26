@@ -5,6 +5,13 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Proxy PocketBase API through Netlify to avoid mixed content (HTTPS -> HTTP)
+[[redirects]]
+  from = "/pb/*"
+  to = "http://142.93.78.220/:splat"
+  status = 200
+  force = true
+
 # Redirect weldon.lol to weldonmakori.com
 [[redirects]]
   from = "https://weldon.lol/*"

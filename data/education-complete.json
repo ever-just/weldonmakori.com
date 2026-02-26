@@ -1,0 +1,463 @@
+{
+  "student": {
+    "name": "Weldon M. Makori",
+    "birthDate": "1998-08-22"
+  },
+  "education": [
+    {
+      "institution": "University of St. Thomas",
+      "location": "St. Paul, MN",
+      "degree": "Bachelor of Science in Business Administration",
+      "major": "Law & Compliance",
+      "minor": "Actuarial Science",
+      "college": "Opus College of Business",
+      "dates": {
+        "start": "Fall 2017",
+        "end": "Expected Spring 2026"
+      },
+      "gpa": {
+        "overall": "2.47",
+        "major": "2.72"
+      },
+      "credits": {
+        "completed": 121,
+        "transferred": 68,
+        "total": 189
+      },
+      "terms": [
+        {
+          "term": "Fall 2017",
+          "college": "College of Arts & Sciences",
+          "major": "Liberal Arts - Engineering",
+          "courses": [
+            {
+              "code": "CISC 130",
+              "name": "Introduction to Programming & Problem Solving - Science",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ENGR 150",
+              "name": "Introduction to Engineering",
+              "credits": 1,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "MATH 113",
+              "name": "Calculus I",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "PHIL 115",
+              "name": "Philosophy of Human Person",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "THEO 101",
+              "name": "Christian Theological Tradition",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Fall 2018",
+          "college": "College of Arts & Sciences",
+          "major": "Liberal Arts - Engineering",
+          "courses": [
+            {
+              "code": "MATH 114",
+              "name": "Calculus II",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "PHIL 214",
+              "name": "Introductory Ethics",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "THEO 200",
+              "name": "Christian Belief: Ancient/Contemporary",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Spring 2024",
+          "college": "Opus College of Business",
+          "major": "Law & Compliance",
+          "courses": [
+            {
+              "code": "ACCT 100",
+              "name": "Principles of Accounting I",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ACSC 220",
+              "name": "Risk Management & Insurance",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "BUSN 100",
+              "name": "Business for the Common Good",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "COMM 105",
+              "name": "Communication in the ACSC Workplace",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "MKTG 200",
+              "name": "Introduction to Marketing",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "MUSC 230",
+              "name": "Music of the United States",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Fall 2024",
+          "college": "Opus College of Business",
+          "major": "Law & Compliance",
+          "courses": [
+            {
+              "code": "ACCT 200",
+              "name": "Principles of Accounting II",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "BETH 300",
+              "name": "Ethical Principles in Business",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "BLAW 300",
+              "name": "Law for Business Leaders I",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "OPMT 200",
+              "name": "Operations & Supply Chain Management",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Spring 2025",
+          "college": "Opus College of Business",
+          "major": "Law & Compliance",
+          "courses": [
+            {
+              "code": "BETH 320",
+              "name": "The Role of Business in Society",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "BLAW 321",
+              "name": "Law for Entrepreneurs and Innovators",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "MGMT 200",
+              "name": "Working Skillfully in Organizations",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Fall 2025",
+          "college": "Opus College of Business",
+          "major": "Law & Compliance",
+          "courses": [
+            {
+              "code": "BLAW 314",
+              "name": "Employment Law",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "BLAW 323",
+              "name": "Health Care Law & Ethics",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "DASC 120",
+              "name": "Introduction to Computational Statistics",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ENTR 100",
+              "name": "Entrepreneurship & Innovation",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Spring 2026",
+          "college": "Opus College of Business",
+          "major": "Law & Compliance",
+          "status": "In Progress",
+          "courses": [
+            {
+              "code": "ACSC 264",
+              "name": "Theory of Interest",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "BLAW 311",
+              "name": "Advanced Business Law for Accounting",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "BLAW 401",
+              "name": "Law & Compliance: Skills & Strategy",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ECON 251",
+              "name": "Principles of Macroeconomics",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "FINC 310",
+              "name": "Core Financial Management",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "THEO 300",
+              "name": "SW: Faith & Law",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "institution": "Normandale Community College",
+      "location": "Bloomington, MN",
+      "degree": "Transfer Credits",
+      "dates": {
+        "start": "Fall 2015",
+        "end": "Spring 2017"
+      },
+      "credits": {
+        "transferred": 68
+      },
+      "terms": [
+        {
+          "term": "Fall 2015",
+          "courses": [
+            {
+              "code": "CHEM 111",
+              "name": "General Chemistry I",
+              "credits": 5,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ENGL 121",
+              "name": "Critical Thinking: Literature/Writing",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "MATH 199",
+              "name": "Ld Mathematics Elective",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "SPAN 211",
+              "name": "Intermediate Spanish I",
+              "credits": 5,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Spring 2016",
+          "courses": [
+            {
+              "code": "CHEM 112",
+              "name": "General Chemistry II",
+              "credits": 5,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "COJO 220",
+              "name": "Interpersonal Communication",
+              "credits": 3,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "MATH 105",
+              "name": "Precalculus",
+              "credits": 5,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "SPAN 212",
+              "name": "Intermediate Spanish II",
+              "credits": 5,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Summer 2016",
+          "courses": [
+            {
+              "code": "BIOL 208",
+              "name": "Biological Communication & Energetics",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ECON 252",
+              "name": "Principles of Microeconomics",
+              "credits": 3,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Fall 2016",
+          "courses": [
+            {
+              "code": "COJO 230",
+              "name": "Foundations in Media & Society",
+              "credits": 3,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ENGL 206",
+              "name": "Texts in Conversation-Transfer",
+              "credits": 3,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "HIST 114",
+              "name": "Modern US/Global Perspective",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "POLS 101",
+              "name": "American Government & Politics",
+              "credits": 3,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        },
+        {
+          "term": "Spring 2017",
+          "courses": [
+            {
+              "code": "ARTS 199",
+              "name": "Ld Studio Art Elective",
+              "credits": 3,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "ENGL 215",
+              "name": "American Authors II",
+              "credits": 4,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "HLTH 275",
+              "name": "Lifelong Stress Management",
+              "credits": 3,
+              "professor": null,
+              "professorLink": null
+            },
+            {
+              "code": "PHED 100",
+              "name": "Foundations for Fitness",
+              "credits": 2,
+              "professor": null,
+              "professorLink": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
