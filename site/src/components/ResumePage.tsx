@@ -6,10 +6,20 @@ import Image from "next/image";
 
 const jobs = [
   {
+    company: "Everjust",
+    url: "https://everjust.co",
+    role: "Founder",
+    period: "Jan 2025 – Present",
+    logo: "/logos/everjust.svg",
+    highlights: [
+      "Building a technology and insurance optimization platform",
+    ],
+  },
+  {
     company: "Custom AI Studio",
     url: "https://customaistudio.io",
     role: "Founding Member / COO",
-    period: "Aug 2024 – Present",
+    period: "Aug 2024 – Dec 2024",
     logo: "/logos/custom-ai-studio.png",
     highlights: [
       "Grew the team from founding stage to a full organization",
@@ -115,7 +125,7 @@ export default function ResumePage() {
           </h1>
           <p className="mt-8 text-white/50 max-w-lg leading-relaxed">
             A decade of sales leadership, entrepreneurship, and building businesses —
-            from early management roles to scaling an AI startup.
+            from early management roles to founding my own company.
           </p>
           <div className="mt-8 flex flex-wrap gap-6">
             <a
