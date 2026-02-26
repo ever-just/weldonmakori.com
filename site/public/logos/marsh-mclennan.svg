@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128">
-  <g transform="translate(8, 12)" fill="#1a3c6e">
-    <polygon points="0,40 18,0 34,0 16,40"/>
-    <polygon points="14,40 32,0 48,0 30,40"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="20" fill="#d4e4f7"/>
+  <g transform="translate(20, 24)" fill="#1a3c6e">
+    <polygon points="0,80 36,0 68,0 32,80"/>
+    <polygon points="20,80 56,0 88,0 52,80"/>
   </g>
 </svg>

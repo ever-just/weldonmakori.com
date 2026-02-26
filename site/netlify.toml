@@ -12,6 +12,27 @@
   status = 200
   force = true
 
+# GoatCounter Analytics proxy
+[[redirects]]
+  from = "/stats/*"
+  to = "http://142.93.78.220/stats/:splat"
+  status = 200
+  force = true
+
+# Listmonk Newsletter proxy
+[[redirects]]
+  from = "/mail/*"
+  to = "http://142.93.78.220/mail/:splat"
+  status = 200
+  force = true
+
+# ntfy Push Notifications proxy
+[[redirects]]
+  from = "/notify/*"
+  to = "http://142.93.78.220/notify/:splat"
+  status = 200
+  force = true
+
 # Redirect weldon.lol to weldonmakori.com
 [[redirects]]
   from = "https://weldon.lol/*"

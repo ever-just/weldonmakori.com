@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -63,6 +64,11 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
+        <Script
+          data-goatcounter="https://weldonmakori.com/stats/count"
+          src="https://weldonmakori.com/stats/count.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
