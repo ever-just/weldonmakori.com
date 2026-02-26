@@ -31,7 +31,7 @@ const timeline = [
   { year: "2016", role: "Co-Owner", place: "WellDone Windows", logo: "/logos/welldone-windows.svg", note: "Built a loyal subscription base", icon: Home },
   { year: "2017", role: "Sales Advisor", place: "Tesla", logo: "/logos/tesla.svg", note: "Model 3 ramp-up across multiple states", icon: Car },
   { year: "2019", role: "Top Revenue Producer", place: "Sleep Number", logo: "/logos/sleep-number.png", note: "Led the org in monthly revenue", icon: BedDouble },
-  { year: "2021", role: "Inside Sales", place: "Renewal by Andersen", logo: "/logos/renewal-by-andersen.svg", note: "Multi-channel growth", icon: Home },
+  { year: "2021", role: "Inside Sales", place: "Renewal by Andersen", logo: "/logos/renewal-by-andersen.png", note: "Multi-channel growth", icon: Home },
   { year: "2022", role: "Agent / Property Manager", place: "CapREIT", logo: "/logos/capreit.png", note: "Led new development lease-up", icon: Building2 },
   { year: "2024", role: "COO", place: "Custom AI Studio", logo: "/logos/custom-ai-studio.png", note: "Scaled team and revenue rapidly", icon: Bot },
   { year: "2025", role: "Founder", place: "Everjust", logo: "/logos/everjust.svg", note: "Technology & insurance optimization", icon: Shield },
@@ -109,7 +109,7 @@ export default function HomePage() {
           >
             Started my first business at 19 with a ladder and a squeegee.
             Now I&apos;m building <span className="text-white/70">Everjust</span> and
-            finishing dual degrees in business and law at
+            studying business law and actuarial science at
             St.&nbsp;Thomas.
           </motion.p>
 
@@ -206,9 +206,9 @@ export default function HomePage() {
             </p>
             <p className="text-white/50 leading-[1.8] text-base md:text-lg mt-4">
               Now I&apos;m building <span className="text-white/70 font-medium">Everjust</span> — a
-              technology and insurance optimization company — while finishing dual
-              degrees in business administration and law at the University of
-              St.&nbsp;Thomas.
+              technology and insurance optimization company — while studying
+              business law and actuarial science at the University of
+              St.&nbsp;Thomas. Risk management is what I find most interesting.
             </p>
             <div className="mt-10 flex gap-4">
               {socials.map((s) => {

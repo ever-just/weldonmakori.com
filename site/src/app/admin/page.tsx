@@ -166,7 +166,9 @@ export default function AdminDashboard() {
                   <p className="text-xs text-white/20 mt-0.5 truncate">{c.subject || c.email}</p>
                 </div>
                 <p className="text-xs text-white/15 shrink-0 ml-4">
-                  {new Date(c.created).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                  {c.created && !isNaN(new Date(c.created).getTime())
+                    ? new Date(c.created).toLocaleDateString("en-US", { month: "short", day: "numeric" })
+                    : "—"}
                 </p>
               </div>
             ))}

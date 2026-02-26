@@ -33,7 +33,7 @@ const jobs = [
     url: "https://marshmma.com",
     role: "Business Insurance Intern",
     period: "May 2024 – Aug 2024",
-    logo: "/logos/marsh-mclennan.svg",
+    logo: "/logos/marsh-mclennan.png",
     highlights: [
       "Assisted sales operations at the #1 business insurance brokerage globally",
       "Created local market intelligence report and conversion optimization strategies",
@@ -54,7 +54,7 @@ const jobs = [
     url: "https://renewalbyandersen.com",
     role: "Inside Sales Professional",
     period: "Feb 2021 – Jul 2022",
-    logo: "/logos/renewal-by-andersen.svg",
+    logo: "/logos/renewal-by-andersen.png",
     highlights: [
       "Exceeded lead generation targets across multiple marketing channels",
     ],
@@ -95,7 +95,7 @@ const jobs = [
     company: "TC Running Company",
     role: "Sales Associate",
     period: "Aug 2015 – Jul 2017",
-    logo: "/logos/tc-running.svg",
+    logo: "/logos/tc-running.png",
     highlights: [],
   },
 ];
