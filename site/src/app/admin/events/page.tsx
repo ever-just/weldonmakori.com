@@ -166,7 +166,7 @@ export default function AdminEvents() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
             <div>
               <label className="block text-[11px] tracking-[0.2em] uppercase text-white/20 mb-2">Start</label>
               <input

@@ -160,7 +160,7 @@ export default function PhotosPage() {
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 text-white/40 hover:text-white/80 transition-colors z-10"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 flex items-center justify-center text-white/40 hover:text-white/80 transition-colors z-10"
             aria-label="Close"
           >
             <X className="w-6 h-6" strokeWidth={1.5} />
@@ -168,7 +168,7 @@ export default function PhotosPage() {
 
           <button
             onClick={(e) => { e.stopPropagation(); goPrev(); }}
-            className="absolute left-4 md:left-8 text-white/30 hover:text-white/70 transition-colors z-10"
+            className="absolute left-2 sm:left-4 md:left-8 w-11 h-11 flex items-center justify-center text-white/30 hover:text-white/70 transition-colors z-10"
             aria-label="Previous"
           >
             <ChevronLeft className="w-8 h-8" strokeWidth={1} />
@@ -176,7 +176,7 @@ export default function PhotosPage() {
 
           <button
             onClick={(e) => { e.stopPropagation(); goNext(); }}
-            className="absolute right-4 md:right-8 text-white/30 hover:text-white/70 transition-colors z-10"
+            className="absolute right-2 sm:right-4 md:right-8 w-11 h-11 flex items-center justify-center text-white/30 hover:text-white/70 transition-colors z-10"
             aria-label="Next"
           >
             <ChevronRight className="w-8 h-8" strokeWidth={1} />

@@ -117,25 +117,25 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-10 md:mt-14 flex flex-wrap gap-5"
+            className="mt-8 md:mt-14 flex flex-wrap gap-3 sm:gap-5"
           >
             <Link
               href="/resume"
-              className="group inline-flex items-center gap-2.5 text-sm text-white border border-white/15 rounded-full px-5 py-2.5 hover:bg-white/[0.05] hover:border-white/25 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white border border-white/15 rounded-full px-4 py-2.5 sm:px-5 hover:bg-white/[0.05] hover:border-white/25 transition-all"
             >
               <FileText size={14} className="opacity-50 group-hover:opacity-80" />
               Resume
             </Link>
             <Link
               href="/education"
-              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-5 py-2.5 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-4 py-2.5 sm:px-5 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
             >
               <GraduationCap size={14} className="opacity-40 group-hover:opacity-70" />
               Education
             </Link>
             <a
               href="mailto:weldonmakori@outlook.com"
-              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-5 py-2.5 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-4 py-2.5 sm:px-5 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
             >
               <Mail size={14} className="opacity-40 group-hover:opacity-70" />
               Contact
@@ -174,8 +174,8 @@ export default function HomePage() {
       <div className="hr-fade" />
 
       {/* ── About ── */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-40">
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-40">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -234,12 +234,12 @@ export default function HomePage() {
       <div className="hr-fade" />
 
       {/* ── Timeline ── */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-40">
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-40">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-16"
+          className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-12 md:mb-16"
         >
           Career
         </motion.p>
@@ -258,9 +258,9 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="group grid grid-cols-[60px_1fr] md:grid-cols-[100px_48px_200px_1fr_1fr] gap-4 md:gap-8 items-center py-6 border-b border-white/[0.04] hover:border-white/[0.08] transition-colors"
+                  className="group grid grid-cols-[50px_1fr] sm:grid-cols-[60px_1fr] md:grid-cols-[100px_48px_200px_1fr_1fr] gap-3 sm:gap-4 md:gap-8 items-center py-5 sm:py-6 border-b border-white/[0.04] hover:border-white/[0.08] transition-colors"
                 >
-                  <span className="text-white/20 text-sm font-mono">{item.year}</span>
+                  <span className="text-white/20 text-xs sm:text-sm font-mono">{item.year}</span>
                   <div className="hidden md:flex w-10 h-10 rounded-lg bg-white/[0.03] items-center justify-center shrink-0 overflow-hidden group-hover:bg-white/[0.06] transition-colors">
                     <Image
                       src={item.logo}
@@ -274,10 +274,10 @@ export default function HomePage() {
                     <Icon size={13} className="text-white/20 shrink-0" />
                     {item.role}
                   </span>
-                  <span className="text-white group-hover:text-white/80 text-sm md:text-base transition-colors">
-                    <span className="md:hidden text-white/60 mr-2">{item.role} —</span>
-                    {item.place}
-                  </span>
+                  <div className="text-white group-hover:text-white/80 transition-colors">
+                    <span className="md:hidden text-white/50 text-xs block">{item.role}</span>
+                    <span className="text-sm md:text-base">{item.place}</span>
+                  </div>
                   <span className="text-white/30 text-sm hidden md:block text-right">{item.note}</span>
                 </motion.div>
               );
@@ -305,12 +305,12 @@ export default function HomePage() {
       <div className="hr-fade" />
 
       {/* ── Ventures ── */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-40">
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-40">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12 md:mb-16"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-6">Ventures</p>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white">
@@ -318,7 +318,7 @@ export default function HomePage() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
           {ventures.map((v, i) => {
             const Icon = v.icon;
             const Wrapper = v.href ? "a" : "div";
@@ -359,7 +359,7 @@ export default function HomePage() {
       <div className="hr-fade" />
 
       {/* ── CTA ── */}
-      <section className="relative max-w-7xl mx-auto px-6 md:px-10 py-32 md:py-48">
+      <section className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-48">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-purple-500/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
@@ -380,10 +380,10 @@ export default function HomePage() {
             Open to partnerships, consulting, and interesting conversations.
           </p>
 
-          <div className="mt-10 md:mt-14 flex flex-wrap gap-4">
+          <div className="mt-8 md:mt-14 flex flex-wrap gap-3 sm:gap-4">
             <a
               href="mailto:weldonmakori@outlook.com"
-              className="group inline-flex items-center gap-2.5 text-sm text-white border border-white/15 rounded-full px-6 py-3 hover:bg-white/[0.05] hover:border-white/25 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white border border-white/15 rounded-full px-5 py-3 sm:px-6 hover:bg-white/[0.05] hover:border-white/25 transition-all"
             >
               <Mail size={15} className="opacity-50 group-hover:opacity-80" />
               weldonmakori@outlook.com
@@ -392,7 +392,7 @@ export default function HomePage() {
               href="https://www.linkedin.com/in/weldonmakori/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-6 py-3 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-5 py-3 sm:px-6 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
             >
               <Linkedin size={15} className="opacity-40 group-hover:opacity-70" />
               LinkedIn

@@ -201,9 +201,9 @@ function TermRow({ term, defaultOpen }: { term: Term; defaultOpen: boolean }) {
               {term.courses.map((c) => (
                 <div
                   key={c.code}
-                  className="grid grid-cols-[70px_1fr_40px] md:grid-cols-[90px_1fr_60px] gap-3 py-2 items-baseline"
+                  className="grid grid-cols-[60px_1fr_36px] sm:grid-cols-[70px_1fr_40px] md:grid-cols-[90px_1fr_60px] gap-2 sm:gap-3 py-2 items-baseline"
                 >
-                  <span className="text-xs font-mono text-white/25">{c.code}</span>
+                  <span className="text-[11px] sm:text-xs font-mono text-white/25 truncate">{c.code}</span>
                   <span className="text-sm text-white/50">{c.name}</span>
                   {c.credits > 0 && (
                     <span className="text-xs text-white/15 text-right">{c.credits} cr</span>
@@ -240,7 +240,7 @@ export default function EducationPage() {
             sell, and scale.
           </p>
 
-          <div className="mt-12 flex gap-10 md:gap-16">
+          <div className="mt-10 sm:mt-12 flex gap-8 sm:gap-10 md:gap-16">
             {[
               { value: "50+", label: "Courses" },
               { value: "189", label: "Credits" },
@@ -388,7 +388,7 @@ export default function EducationPage() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-12">Areas of Study</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 sm:gap-x-12 gap-y-5 sm:gap-y-6">
             {[
               { area: "Business Law & Compliance", count: 8 },
               { area: "Business & Management", count: 10 },

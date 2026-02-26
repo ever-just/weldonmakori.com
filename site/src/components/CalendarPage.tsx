@@ -175,8 +175,8 @@ export default function CalendarPage() {
               className="lg:col-span-2"
             >
               {/* Month Nav */}
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-xl md:text-2xl font-light text-white/80">
+              <div className="flex items-center justify-between mb-6 sm:mb-8">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-light text-white/80">
                   {MONTHS[currentMonth]} {currentYear}
                 </h2>
                 <div className="flex items-center gap-2">
@@ -200,7 +200,7 @@ export default function CalendarPage() {
               {/* Day Headers */}
               <div className="grid grid-cols-7 mb-2">
                 {DAYS.map((day) => (
-                  <div key={day} className="text-center text-[11px] tracking-[0.15em] uppercase text-white/20 py-2">
+                  <div key={day} className="text-center text-[10px] sm:text-[11px] tracking-[0.15em] uppercase text-white/20 py-2">
                     {day}
                   </div>
                 ))}
@@ -229,7 +229,7 @@ export default function CalendarPage() {
                       }`}
                     >
                       <span
-                        className={`text-sm ${
+                        className={`text-xs sm:text-sm ${
                           isToday
                             ? "text-white font-medium"
                             : isSelected

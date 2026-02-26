@@ -151,8 +151,8 @@ export default function ResumePage() {
       <div className="hr-fade" />
 
       {/* Experience */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-32">
-        <p className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-16">Experience</p>
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 sm:py-20 md:py-32">
+        <p className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-10 sm:mb-16">Experience</p>
 
         <div className="space-y-0">
           {jobs.map((job, i) => (
@@ -164,7 +164,7 @@ export default function ResumePage() {
               transition={{ duration: 0.5, delay: i * 0.03 }}
               className="group py-8 border-b border-white/[0.04] hover:border-white/[0.08] transition-colors"
             >
-              <div className="grid md:grid-cols-[auto_1fr_2fr] gap-4 md:gap-8 items-start">
+              <div className="grid md:grid-cols-[auto_1fr_2fr] gap-3 sm:gap-4 md:gap-8 items-start">
                 {/* Logo */}
                 <div className="hidden md:flex w-12 h-12 rounded-lg bg-white/[0.03] items-center justify-center shrink-0 overflow-hidden">
                   <Image
@@ -214,8 +214,8 @@ export default function ResumePage() {
       <div className="hr-fade" />
 
       {/* Skills */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-32">
-        <p className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-16">Skills</p>
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 sm:py-20 md:py-32">
+        <p className="text-[11px] tracking-[0.3em] uppercase text-white/30 mb-10 sm:mb-16">Skills</p>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {Object.entries(skills).map(([category, items], i) => (
