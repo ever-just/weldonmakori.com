@@ -15,21 +15,21 @@
 # GoatCounter Analytics proxy
 [[redirects]]
   from = "/stats/*"
-  to = "http://142.93.78.220/stats/:splat"
+  to = "http://142.93.78.220:8081/:splat"
   status = 200
   force = true
 
 # Listmonk Newsletter proxy
 [[redirects]]
   from = "/mail/*"
-  to = "http://142.93.78.220/mail/:splat"
+  to = "http://142.93.78.220:8082/:splat"
   status = 200
   force = true
 
 # ntfy Push Notifications proxy
 [[redirects]]
   from = "/notify/*"
-  to = "http://142.93.78.220/notify/:splat"
+  to = "http://142.93.78.220:8083/:splat"
   status = 200
   force = true
 
