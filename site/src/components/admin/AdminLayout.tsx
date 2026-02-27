@@ -16,6 +16,9 @@ import {
   X,
   Settings,
   Calendar,
+  BarChart3,
+  Newspaper,
+  Bell,
 } from "lucide-react";
 import PocketBase from "pocketbase";
 import pbClient from "@/lib/pocketbase";
@@ -39,6 +42,9 @@ const navItems = [
   { href: "/admin/events", label: "Events", icon: CalendarDays },
   { href: "/admin/bookings", label: "Bookings", icon: Users },
   { href: "/admin/calendar", label: "Calendar", icon: Calendar },
+  { href: "/admin/analytics", label: "Analytics", icon: BarChart3 },
+  { href: "/admin/newsletter", label: "Newsletter", icon: Newspaper },
+  { href: "/admin/notifications", label: "Notifications", icon: Bell },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 
