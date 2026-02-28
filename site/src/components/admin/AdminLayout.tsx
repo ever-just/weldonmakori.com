@@ -170,7 +170,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </Link>
             <p className="text-sm font-light text-white/70 mt-2">Admin</p>
           </div>
-          <nav className="flex-1 px-3 py-4 space-y-1">
+          <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
             {navItems.map((item) => {
               const active = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(item.href));
               const Icon = item.icon;
