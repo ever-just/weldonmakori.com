@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, GraduationCap, Pen, Camera, Mail, CalendarDays, type LucideIcon } from "lucide-react";
+import { Home, Briefcase, GraduationCap, Pen, Camera, Mail, CalendarDays, Video, type LucideIcon } from "lucide-react";
 import pb from "@/lib/pocketbase";
 
 const allLinks: { href: string; label: string; icon: LucideIcon; settingKey: string }[] = [
@@ -15,6 +15,7 @@ const allLinks: { href: string; label: string; icon: LucideIcon; settingKey: str
   { href: "/photos", label: "Photos", icon: Camera, settingKey: "page_photos" },
   { href: "/calendar", label: "Calendar", icon: CalendarDays, settingKey: "page_calendar" },
   { href: "/contact", label: "Say Hi", icon: Mail, settingKey: "page_contact" },
+  { href: "/call", label: "Call", icon: Video, settingKey: "page_call" },
 ];
 
 export default function Header() {
