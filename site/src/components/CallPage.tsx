@@ -54,7 +54,6 @@ export default function CallPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [callConfig, setCallConfig] = useState<CallConfig | null>(null);
-  const jitsiContainerRef = useRef<HTMLDivElement>(null);
   const jitsiApiRef = useRef<JitsiMeetInstance | null>(null);
 
   const startCall = useCallback(async () => {
@@ -76,67 +75,70 @@ export default function CallPage() {
     setLoading(false);
   }, [roomName, displayName]);
 
-  // Initialize Jitsi after in-call UI has rendered and ref is available
-  useEffect(() => {
-    if (!inCall || !callConfig || !jitsiContainerRef.current) return;
-    if (jitsiApiRef.current) return;
+  // Callback ref: fires when the container div actually mounts in the DOM
+  // (after AnimatePresence exit animation completes)
+  const jitsiContainerRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (!node || !callConfig || jitsiApiRef.current) return;
 
-    const api = new window.JitsiMeetExternalAPI("meet.jit.si", {
-      roomName: callConfig.room,
-      parentNode: jitsiContainerRef.current,
-      width: "100%",
-      height: "100%",
-      userInfo: {
-        displayName: callConfig.name,
-      },
-      configOverwrite: {
-        startWithAudioMuted: false,
-        startWithVideoMuted: false,
-        prejoinPageEnabled: false,
-        disableDeepLinking: true,
-        hideConferenceSubject: true,
-        hideConferenceTimer: false,
-        subject: " ",
-        defaultLanguage: "en",
-        disableThirdPartyRequests: true,
-        brandingRoomAlias: callConfig.room,
-      },
-      interfaceConfigOverwrite: {
-        SHOW_JITSI_WATERMARK: false,
-        SHOW_WATERMARK_FOR_GUESTS: false,
-        SHOW_BRAND_WATERMARK: false,
-        SHOW_CHROME_EXTENSION_BANNER: false,
-        SHOW_POWERED_BY: false,
-        SHOW_PROMOTIONAL_CLOSE_PAGE: false,
-        HIDE_INVITE_MORE_HEADER: true,
-        DISABLE_JOIN_LEAVE_NOTIFICATIONS: false,
-        APP_NAME: "Video Call",
-        NATIVE_APP_NAME: "Video Call",
-        PROVIDER_NAME: "Weldon Makori",
-        DEFAULT_BACKGROUND: "#050505",
-        TOOLBAR_BUTTONS: [
-          "microphone",
-          "camera",
-          "desktop",
-          "chat",
-          "raisehand",
-          "tileview",
-          "hangup",
-          "fullscreen",
-          "settings",
-        ],
-      },
-    });
+      const api = new window.JitsiMeetExternalAPI("meet.jit.si", {
+        roomName: callConfig.room,
+        parentNode: node,
+        width: "100%",
+        height: "100%",
+        userInfo: {
+          displayName: callConfig.name,
+        },
+        configOverwrite: {
+          startWithAudioMuted: false,
+          startWithVideoMuted: false,
+          prejoinPageEnabled: false,
+          disableDeepLinking: true,
+          hideConferenceSubject: true,
+          hideConferenceTimer: false,
+          subject: " ",
+          defaultLanguage: "en",
+          disableThirdPartyRequests: true,
+          brandingRoomAlias: callConfig.room,
+        },
+        interfaceConfigOverwrite: {
+          SHOW_JITSI_WATERMARK: false,
+          SHOW_WATERMARK_FOR_GUESTS: false,
+          SHOW_BRAND_WATERMARK: false,
+          SHOW_CHROME_EXTENSION_BANNER: false,
+          SHOW_POWERED_BY: false,
+          SHOW_PROMOTIONAL_CLOSE_PAGE: false,
+          HIDE_INVITE_MORE_HEADER: true,
+          DISABLE_JOIN_LEAVE_NOTIFICATIONS: false,
+          APP_NAME: "Video Call",
+          NATIVE_APP_NAME: "Video Call",
+          PROVIDER_NAME: "Weldon Makori",
+          DEFAULT_BACKGROUND: "#050505",
+          TOOLBAR_BUTTONS: [
+            "microphone",
+            "camera",
+            "desktop",
+            "chat",
+            "raisehand",
+            "tileview",
+            "hangup",
+            "fullscreen",
+            "settings",
+          ],
+        },
+      });
 
-    api.addEventListener("readyToClose", () => {
-      api.dispose();
-      jitsiApiRef.current = null;
-      setCallConfig(null);
-      setInCall(false);
-    });
+      api.addEventListener("readyToClose", () => {
+        api.dispose();
+        jitsiApiRef.current = null;
+        setCallConfig(null);
+        setInCall(false);
+      });
 
-    jitsiApiRef.current = api;
-  }, [inCall, callConfig]);
+      jitsiApiRef.current = api;
+    },
+    [callConfig]
+  );
 
   const endCall = useCallback(() => {
     if (jitsiApiRef.current) {
