@@ -42,17 +42,24 @@ function loadJitsiScript(): Promise<void> {
   });
 }
 
+interface CallConfig {
+  room: string;
+  name: string;
+}
+
 export default function CallPage() {
   const [roomName, setRoomName] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [inCall, setInCall] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [callConfig, setCallConfig] = useState<CallConfig | null>(null);
   const jitsiContainerRef = useRef<HTMLDivElement>(null);
   const jitsiApiRef = useRef<JitsiMeetInstance | null>(null);
 
   const startCall = useCallback(async () => {
     const room = roomName.trim() || generateRoomName();
+    const name = displayName.trim() || "Guest";
     setError("");
     setLoading(true);
 
@@ -64,21 +71,23 @@ export default function CallPage() {
       return;
     }
 
-    if (!jitsiContainerRef.current) {
-      setLoading(false);
-      return;
-    }
-
+    setCallConfig({ room, name });
     setInCall(true);
     setLoading(false);
+  }, [roomName, displayName]);
+
+  // Initialize Jitsi after in-call UI has rendered and ref is available
+  useEffect(() => {
+    if (!inCall || !callConfig || !jitsiContainerRef.current) return;
+    if (jitsiApiRef.current) return;
 
     const api = new window.JitsiMeetExternalAPI("meet.jit.si", {
-      roomName: room,
+      roomName: callConfig.room,
       parentNode: jitsiContainerRef.current,
       width: "100%",
       height: "100%",
       userInfo: {
-        displayName: displayName.trim() || "Guest",
+        displayName: callConfig.name,
       },
       configOverwrite: {
         startWithAudioMuted: false,
@@ -90,7 +99,7 @@ export default function CallPage() {
         subject: " ",
         defaultLanguage: "en",
         disableThirdPartyRequests: true,
-        brandingRoomAlias: room,
+        brandingRoomAlias: callConfig.room,
       },
       interfaceConfigOverwrite: {
         SHOW_JITSI_WATERMARK: false,
@@ -122,17 +131,19 @@ export default function CallPage() {
     api.addEventListener("readyToClose", () => {
       api.dispose();
       jitsiApiRef.current = null;
+      setCallConfig(null);
       setInCall(false);
     });
 
     jitsiApiRef.current = api;
-  }, [roomName, displayName]);
+  }, [inCall, callConfig]);
 
   const endCall = useCallback(() => {
     if (jitsiApiRef.current) {
       jitsiApiRef.current.dispose();
       jitsiApiRef.current = null;
     }
+    setCallConfig(null);
     setInCall(false);
   }, []);
 
@@ -314,11 +325,6 @@ export default function CallPage() {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Hidden container for Jitsi when not yet in call */}
-        {!inCall && (
-          <div ref={jitsiContainerRef} className="hidden" />
-        )}
       </div>
     </section>
   );
