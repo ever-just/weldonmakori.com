@@ -5,6 +5,17 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Prevent edge caching of HTML pages (fixes stale JS chunk 404s after deploys)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    cache-control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
 # Proxy PocketBase API through Netlify to avoid mixed content (HTTPS -> HTTP)
 [[redirects]]
   from = "/pb/*"
