@@ -1,5 +1,4 @@
 [build]
-  base = "site"
   command = "npm run build"
   publish = ".next"
 
@@ -28,6 +27,13 @@
 [[redirects]]
   from = "/stats/*"
   to = "http://142.93.78.220:8081/:splat"
+  status = 200
+  force = true
+
+# GoatCounter Stats API
+[[redirects]]
+  from = "/gc-api/*"
+  to = "http://142.93.78.220:8084/:splat"
   status = 200
   force = true
 
