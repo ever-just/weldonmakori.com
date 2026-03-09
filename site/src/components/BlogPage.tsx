@@ -80,8 +80,20 @@ export default function BlogPage() {
       {/* Posts */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
         {loading ? (
-          <div className="flex justify-center py-20">
-            <div className="w-5 h-5 border border-white/20 border-t-white/60 rounded-full animate-spin" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div className="aspect-[16/9] mb-6 rounded-sm bg-white/[0.04]" />
+                <div className="flex gap-3 mb-3">
+                  <div className="h-5 w-16 rounded-full bg-white/[0.04]" />
+                  <div className="h-5 w-20 rounded-full bg-white/[0.04]" />
+                </div>
+                <div className="h-7 w-3/4 rounded bg-white/[0.04] mb-3" />
+                <div className="h-4 w-full rounded bg-white/[0.03]" />
+                <div className="h-4 w-2/3 rounded bg-white/[0.03] mt-2" />
+                <div className="h-3 w-24 rounded bg-white/[0.03] mt-4" />
+              </div>
+            ))}
           </div>
         ) : posts.length === 0 ? (
           <motion.div
