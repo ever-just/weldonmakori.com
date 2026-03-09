@@ -205,7 +205,7 @@ export default function CallPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="text-white/40 text-sm md:text-base max-w-md mx-auto"
+                  className="text-white/50 text-sm md:text-base max-w-md mx-auto"
                 >
                   Enter a room name to create or join a video call. Share the
                   room name with others so they can join you.
@@ -222,7 +222,7 @@ export default function CallPage() {
                 <div className="space-y-5">
                   {/* Room Name */}
                   <div>
-                    <label className="flex items-center gap-2 text-xs tracking-widest uppercase text-white/40 mb-2">
+                    <label className="flex items-center gap-2 text-xs tracking-widest uppercase text-white/50 mb-2">
                       <Hash size={12} strokeWidth={1.5} />
                       Room Name
                     </label>
@@ -231,13 +231,13 @@ export default function CallPage() {
                       value={roomName}
                       onChange={(e) => setRoomName(e.target.value)}
                       placeholder="Leave blank for a random room"
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/12 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/25 transition-colors"
                     />
                   </div>
 
                   {/* Display Name */}
                   <div>
-                    <label className="flex items-center gap-2 text-xs tracking-widest uppercase text-white/40 mb-2">
+                    <label className="flex items-center gap-2 text-xs tracking-widest uppercase text-white/50 mb-2">
                       <User size={12} strokeWidth={1.5} />
                       Your Name
                     </label>
@@ -246,7 +246,7 @@ export default function CallPage() {
                       value={displayName}
                       onChange={(e) => setDisplayName(e.target.value)}
                       placeholder="Guest"
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/12 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/25 transition-colors"
                     />
                   </div>
 
@@ -291,11 +291,11 @@ export default function CallPage() {
                 transition={{ delay: 0.6 }}
                 className="mt-10 text-center space-y-2"
               >
-                <p className="text-white/20 text-xs tracking-wide">
+                <p className="text-white/30 text-xs tracking-wide">
                   Tip: Share the room name with others to invite them to the
                   same call.
                 </p>
-                <p className="text-white/20 text-xs tracking-wide">
+                <p className="text-white/30 text-xs tracking-wide">
                   No account required. Calls are peer-to-peer and encrypted.
                 </p>
               </motion.div>

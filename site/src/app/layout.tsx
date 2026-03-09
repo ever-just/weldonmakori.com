@@ -40,6 +40,14 @@ export const metadata: Metadata = {
     title: "Weldon Makori",
     description:
       "Weldon Makori's official personal website. Discover Weldon's professional work, projects, education, and more.",
+    images: [
+      {
+        url: "https://weldonmakori.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Weldon Makori — Founder · Builder · Minneapolis",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

@@ -165,7 +165,7 @@ export default function CalendarPage() {
             <div className="w-5 h-5 border border-white/20 border-t-white/60 rounded-full animate-spin" />
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Calendar */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -310,7 +310,7 @@ export default function CalendarPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="space-y-12"
+              className="space-y-12 lg:border-none border-t border-white/[0.06] pt-8 lg:pt-0"
             >
               {/* Upcoming Events */}
               <div>

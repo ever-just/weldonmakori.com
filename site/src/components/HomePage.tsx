@@ -75,7 +75,7 @@ export default function HomePage() {
         {/* Subtle dot grid background */}
         <div className="absolute inset-0 dot-grid opacity-40" />
         {/* Radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-purple-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(800px,100vw)] h-[600px] bg-purple-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
         <motion.div
           style={{ opacity: heroOpacity, scale: heroScale }}
@@ -85,7 +85,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-white/40 text-sm md:text-base tracking-wide mb-6 md:mb-8"
+            className="text-white/50 text-sm md:text-base tracking-wide mb-6 md:mb-8"
           >
             Founder &middot; Builder &middot; Minneapolis
           </motion.p>
@@ -105,7 +105,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 md:mt-12 text-white/50 text-base md:text-lg max-w-xl leading-relaxed"
+            className="mt-8 md:mt-12 text-white/60 text-base md:text-lg max-w-xl leading-relaxed"
           >
             Started my first business at 19 with a ladder and a squeegee.
             Now I&apos;m building <span className="text-white/70">Everjust</span> and
@@ -128,16 +128,16 @@ export default function HomePage() {
             </Link>
             <Link
               href="/education"
-              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-4 py-2.5 sm:px-5 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white/70 border border-white/12 rounded-full px-4 py-2.5 sm:px-5 hover:bg-white/[0.05] hover:border-white/20 hover:text-white/90 transition-all"
             >
-              <GraduationCap size={14} className="opacity-40 group-hover:opacity-70" />
+              <GraduationCap size={14} className="opacity-50 group-hover:opacity-80" />
               Education
             </Link>
             <a
               href="mailto:weldonmakori@outlook.com"
-              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-4 py-2.5 sm:px-5 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white/70 border border-white/12 rounded-full px-4 py-2.5 sm:px-5 hover:bg-white/[0.05] hover:border-white/20 hover:text-white/90 transition-all"
             >
-              <Mail size={14} className="opacity-40 group-hover:opacity-70" />
+              <Mail size={14} className="opacity-50 group-hover:opacity-80" />
               Contact
             </a>
           </motion.div>
@@ -153,7 +153,7 @@ export default function HomePage() {
           <motion.p
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="text-[11px] tracking-[0.3em] uppercase text-white/20 [writing-mode:vertical-lr]"
+            className="text-[11px] tracking-[0.3em] uppercase text-white/30 [writing-mode:vertical-lr]"
           >
             Scroll
           </motion.p>
@@ -164,7 +164,7 @@ export default function HomePage() {
       <div className="overflow-hidden py-8 border-y border-white/[0.04]">
         <div className="animate-marquee flex whitespace-nowrap">
           {[...expertise, ...expertise].map((item, i) => (
-            <span key={i} className="mx-8 text-sm md:text-base text-white/15 font-medium tracking-wide uppercase">
+            <span key={i} className="mx-8 text-sm md:text-base text-white/25 font-medium tracking-wide uppercase">
               {item}
             </span>
           ))}
@@ -220,7 +220,7 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="w-10 h-10 rounded-full border border-white/[0.06] flex items-center justify-center text-white/25 hover:text-white/60 hover:border-white/15 hover:bg-white/[0.03] transition-all duration-300"
+                    className="w-10 h-10 rounded-full border border-white/[0.08] flex items-center justify-center text-white/35 hover:text-white/60 hover:border-white/15 hover:bg-white/[0.03] transition-all duration-300"
                   >
                     <Icon size={16} />
                   </a>
@@ -361,7 +361,7 @@ export default function HomePage() {
       {/* ── CTA ── */}
       <section className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-48">
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-purple-500/[0.04] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(500px,100vw)] h-[300px] bg-purple-500/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -376,7 +376,7 @@ export default function HomePage() {
             <span className="gradient-text">together.</span>
           </h2>
 
-          <p className="mt-6 text-white/40 text-base md:text-lg max-w-md">
+          <p className="mt-6 text-white/50 text-base md:text-lg max-w-md">
             Open to partnerships, consulting, and interesting conversations.
           </p>
 
@@ -392,9 +392,9 @@ export default function HomePage() {
               href="https://www.linkedin.com/in/weldonmakori/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 text-sm text-white/60 border border-white/10 rounded-full px-5 py-3 sm:px-6 hover:bg-white/[0.03] hover:border-white/15 hover:text-white/80 transition-all"
+              className="group inline-flex items-center gap-2.5 text-sm text-white/70 border border-white/12 rounded-full px-5 py-3 sm:px-6 hover:bg-white/[0.05] hover:border-white/20 hover:text-white/90 transition-all"
             >
-              <Linkedin size={15} className="opacity-40 group-hover:opacity-70" />
+              <Linkedin size={15} className="opacity-50 group-hover:opacity-80" />
               LinkedIn
             </a>
           </div>

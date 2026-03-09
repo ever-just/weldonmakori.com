@@ -60,7 +60,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-base md:text-lg text-white/30 max-w-xl leading-relaxed"
+            className="mt-6 text-base md:text-lg text-white/40 max-w-xl leading-relaxed"
           >
             Have a question, a project idea, or just want to say hello? I&apos;d love to hear from you.
           </motion.p>
@@ -101,7 +101,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-[11px] tracking-[0.2em] uppercase text-white/20 mb-3">
+                    <label className="block text-[11px] tracking-[0.2em] uppercase text-white/30 mb-3">
                       Name
                     </label>
                     <input
@@ -109,12 +109,12 @@ export default function ContactPage() {
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/15 focus:border-white/30 focus:outline-none transition-colors"
+                      className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/20 focus:border-white/30 focus:outline-none transition-colors"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] tracking-[0.2em] uppercase text-white/20 mb-3">
+                    <label className="block text-[11px] tracking-[0.2em] uppercase text-white/30 mb-3">
                       Email
                     </label>
                     <input
@@ -122,27 +122,27 @@ export default function ContactPage() {
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/15 focus:border-white/30 focus:outline-none transition-colors"
+                      className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/20 focus:border-white/30 focus:outline-none transition-colors"
                       placeholder="you@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] tracking-[0.2em] uppercase text-white/20 mb-3">
+                  <label className="block text-[11px] tracking-[0.2em] uppercase text-white/30 mb-3">
                     Subject
                   </label>
                   <input
                     type="text"
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/15 focus:border-white/30 focus:outline-none transition-colors"
+                    className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/20 focus:border-white/30 focus:outline-none transition-colors"
                     placeholder="What's this about?"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] tracking-[0.2em] uppercase text-white/20 mb-3">
+                  <label className="block text-[11px] tracking-[0.2em] uppercase text-white/30 mb-3">
                     Message
                   </label>
                   <textarea
@@ -150,7 +150,7 @@ export default function ContactPage() {
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/15 focus:border-white/30 focus:outline-none transition-colors resize-none"
+                    className="w-full bg-transparent border-b border-white/10 pb-3 text-white/80 text-sm placeholder:text-white/20 focus:border-white/30 focus:outline-none transition-colors resize-none"
                     placeholder="Your message..."
                   />
                 </div>
@@ -183,7 +183,7 @@ export default function ContactPage() {
             className="lg:col-span-2 space-y-12"
           >
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-white/20 mb-4">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-white/30 mb-4">
                 Email
               </p>
               <a
@@ -195,14 +195,14 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-white/20 mb-4">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-white/30 mb-4">
                 Location
               </p>
               <p className="text-sm text-white/50">Minneapolis, MN</p>
             </div>
 
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-white/20 mb-4">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-white/30 mb-4">
                 Social
               </p>
               <div className="flex flex-col gap-3">
@@ -212,7 +212,7 @@ export default function ContactPage() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-white/40 hover:text-white/70 transition-colors duration-300"
+                    className="text-sm text-white/50 hover:text-white/70 transition-colors duration-300"
                   >
                     {s.label}
                   </a>
@@ -221,7 +221,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-white/20 mb-4">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-white/30 mb-4">
                 Response Time
               </p>
               <p className="text-sm text-white/50">Usually within 24 hours</p>

@@ -98,8 +98,15 @@ export default function PhotosPage() {
       {/* Gallery Grid */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
         {loading ? (
-          <div className="flex justify-center py-20">
-            <div className="w-5 h-5 border border-white/20 border-t-white/60 rounded-full animate-spin" />
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+            {Array.from({ length: 9 }).map((_, i) => (
+              <div key={i} className="break-inside-avoid animate-pulse">
+                <div
+                  className="rounded-sm bg-white/[0.04]"
+                  style={{ aspectRatio: i % 3 === 0 ? "3/4" : i % 3 === 1 ? "4/3" : "1/1" }}
+                />
+              </div>
+            ))}
           </div>
         ) : photos.length === 0 ? (
           <motion.div
