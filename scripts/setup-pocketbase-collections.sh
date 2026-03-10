@@ -1,5 +1,5 @@
 #!/bin/bash
-PB_URL="http://142.93.78.220"
+PB_URL="http://167.71.243.183"
 
 # Auth
 PB_TOKEN=$(curl -s -X POST "$PB_URL/api/collections/_superusers/auth-with-password" \

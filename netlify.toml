@@ -20,35 +20,35 @@
 # Proxy PocketBase API through Netlify to avoid mixed content (HTTPS -> HTTP)
 [[redirects]]
   from = "/pb/*"
-  to = "http://142.93.78.220/:splat"
+  to = "http://167.71.243.183/pb/:splat"
   status = 200
   force = true
 
 # GoatCounter Analytics proxy
 [[redirects]]
   from = "/stats/*"
-  to = "http://142.93.78.220:8081/:splat"
+  to = "http://167.71.243.183/stats/:splat"
   status = 200
   force = true
 
 # GoatCounter Stats API
 [[redirects]]
   from = "/gc-api/*"
-  to = "http://142.93.78.220:8084/:splat"
+  to = "http://167.71.243.183/gc-api/:splat"
   status = 200
   force = true
 
 # Listmonk Newsletter proxy
 [[redirects]]
   from = "/mail/*"
-  to = "http://142.93.78.220:8082/:splat"
+  to = "http://167.71.243.183/mail/:splat"
   status = 200
   force = true
 
 # ntfy Push Notifications proxy
 [[redirects]]
   from = "/notify/*"
-  to = "http://142.93.78.220:8083/:splat"
+  to = "http://167.71.243.183/notify/:splat"
   status = 200
   force = true
 
