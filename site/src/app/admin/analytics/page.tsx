@@ -12,6 +12,7 @@ import {
   FileText,
   MapPin,
   Loader2,
+  AlertTriangle,
 } from "lucide-react";
 
 const API_BASE = "/gc-api/api/stats";
@@ -113,6 +114,7 @@ function MiniChart({ data }: { data: DailyStat[] }) {
 
 export default function AdminAnalytics() {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [summary, setSummary] = useState<Summary | null>(null);
   const [pages, setPages] = useState<PageStat[]>([]);
   const [daily, setDaily] = useState<DailyStat[]>([]);
@@ -123,6 +125,7 @@ export default function AdminAnalytics() {
 
   const loadAll = useCallback(async () => {
     setLoading(true);
+    setError(false);
     const [s, p, d, r, b, sys, loc] = await Promise.all([
       fetchJSON<Summary>(`${API_BASE}/summary`),
       fetchJSON<PageStat[]>(`${API_BASE}/pages`),
@@ -132,13 +135,18 @@ export default function AdminAnalytics() {
       fetchJSON<NamedStat[]>(`${API_BASE}/systems`),
       fetchJSON<LocationStat[]>(`${API_BASE}/locations`),
     ]);
-    if (s) setSummary(s);
-    if (p) setPages(p);
-    if (d) setDaily(d);
-    if (r) setRefs(r);
-    if (b) setBrowsers(b);
-    if (sys) setSystems(sys);
-    if (loc) setLocations(loc);
+    // If all requests failed, show error state
+    if (!s && !p && !d && !r && !b && !sys && !loc) {
+      setError(true);
+    } else {
+      if (s) setSummary(s);
+      if (p) setPages(p);
+      if (d) setDaily(d);
+      if (r) setRefs(r);
+      if (b) setBrowsers(b);
+      if (sys) setSystems(sys);
+      if (loc) setLocations(loc);
+    }
     setLoading(false);
   }, []);
 
@@ -178,6 +186,62 @@ export default function AdminAnalytics() {
       {loading && !summary ? (
         <div className="flex items-center justify-center py-20">
           <Loader2 size={20} className="animate-spin text-white/20" />
+        </div>
+      ) : error && !summary ? (
+        <div className="space-y-6">
+          {/* Error Banner */}
+          <div className="p-5 rounded-sm border border-amber-500/20 bg-amber-500/[0.04]">
+            <div className="flex items-start gap-3">
+              <AlertTriangle size={16} className="text-amber-400/60 mt-0.5 shrink-0" />
+              <div>
+                <p className="text-sm text-white/60 mb-1">Unable to load analytics data</p>
+                <p className="text-xs text-white/30 leading-relaxed">
+                  The analytics API service could not be reached. This usually means the GoatCounter
+                  stats API on your server needs to be running. You can still view analytics directly
+                  in the GoatCounter dashboard below.
+                </p>
+                <button
+                  onClick={loadAll}
+                  className="mt-3 inline-flex items-center gap-2 text-xs text-amber-400/70 hover:text-amber-400 transition-colors"
+                >
+                  <RefreshCw size={12} />
+                  Try again
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* GoatCounter Dashboard Embed */}
+          <div className="rounded-sm border border-white/[0.06] overflow-hidden">
+            <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/20">GoatCounter Dashboard</p>
+              <a
+                href={GOATCOUNTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[10px] text-white/30 hover:text-white/50 transition-colors"
+              >
+                <ExternalLink size={10} />
+                Open in new tab
+              </a>
+            </div>
+            <div className="bg-white">
+              <iframe
+                src={GOATCOUNTER_URL}
+                className="w-full border-0"
+                style={{ height: "calc(100vh - 280px)", minHeight: "500px" }}
+                title="GoatCounter Analytics"
+              />
+            </div>
+          </div>
+
+          {/* Footer info */}
+          <div className="flex items-center gap-2 px-3 py-2 rounded-sm border border-white/[0.06] bg-white/[0.02]">
+            <BarChart3 size={13} className="text-white/20" />
+            <p className="text-[10px] text-white/20">
+              Powered by GoatCounter — privacy-friendly, no cookies, no personal data tracked.
+            </p>
+          </div>
         </div>
       ) : (
         <div className="space-y-6">
