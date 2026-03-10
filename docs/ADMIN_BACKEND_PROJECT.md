@@ -136,8 +136,8 @@ Add a full admin backend to weldonmakori.com with analytics, contact form manage
 - [x] Create all 5 collections with correct fields
 - [x] Configure API rules (public read for posts/photos/events, public create for bookings/contacts)
 - [x] Install PocketBase JS SDK in Next.js project
-- **Droplet IP:** 142.93.78.220
-- **Droplet ID:** 554637298
+- **Droplet IP:** 167.71.243.183
+- **Droplet ID:** 557227154
 
 ### Phase 2: Contact Form ✅
 - [x] Build `/contact` frontend page (dark theme, form with name/email/subject/message)
