@@ -11,7 +11,7 @@ const allLinks = [
   { href: "/resume", label: "Work", settingKey: "page_work" },
   { href: "/education", label: "School", settingKey: "page_school" },
   { href: "/blog", label: "Blog", settingKey: "page_blog" },
-  { href: "/photos", label: "Photos", settingKey: "page_photos" },
+  { href: "/photos", label: "Media", settingKey: "page_photos" },
   { href: "/calendar", label: "Calendar", settingKey: "page_calendar" },
   { href: "/contact", label: "Say Hi", settingKey: "page_contact" },
 ];

@@ -81,7 +81,7 @@ export default function PhotosPage() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-white/90 leading-[1.1]"
           >
-            Photos
+            Media
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -89,7 +89,7 @@ export default function PhotosPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-base md:text-lg text-white/30 max-w-xl leading-relaxed"
           >
-            Moments captured along the way.
+            A collection of photos, videos & more.
           </motion.p>
         </div>
         <div className="hr-fade" />
@@ -114,7 +114,7 @@ export default function PhotosPage() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <p className="text-white/30 text-lg font-light">No photos yet.</p>
+            <p className="text-white/30 text-lg font-light">No media yet.</p>
             <p className="text-white/15 text-sm mt-2">Check back soon.</p>
           </motion.div>
         ) : (
