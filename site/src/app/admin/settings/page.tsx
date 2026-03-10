@@ -89,7 +89,8 @@ export default function AdminSettings() {
       // Re-authenticate with current password to verify identity
       await pb.collection("_superusers").authWithPassword(
         pb.authStore.record?.email as string,
-        currentPassword
+        currentPassword,
+        { requestKey: null }
       );
       // Update password
       await pb.collection("_superusers").update(pb.authStore.record!.id, {
