@@ -38,7 +38,7 @@ const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/contacts", label: "Contacts", icon: Mail },
   { href: "/admin/blog", label: "Blog", icon: FileText },
-  { href: "/admin/photos", label: "Photos", icon: Image },
+  { href: "/admin/photos", label: "Media", icon: Image },
   { href: "/admin/events", label: "Events", icon: CalendarDays },
   { href: "/admin/bookings", label: "Bookings", icon: Users },
   { href: "/admin/calendar", label: "Calendar", icon: Calendar },

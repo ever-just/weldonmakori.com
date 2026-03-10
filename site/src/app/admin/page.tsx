@@ -79,7 +79,7 @@ export default function AdminDashboard() {
       href: "/admin/blog",
     },
     {
-      label: "Photos",
+      label: "Media",
       value: stats.photos,
       sub: "in gallery",
       icon: Image,
