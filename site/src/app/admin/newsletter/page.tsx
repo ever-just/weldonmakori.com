@@ -2,7 +2,7 @@
 
 import { Newspaper, ExternalLink, Users, Send, List } from "lucide-react";
 
-const LISTMONK_URL = "http://142.93.78.220:8082";
+const LISTMONK_URL = "/mail";
 
 export default function AdminNewsletter() {
   return (

@@ -15,7 +15,7 @@ const PAGE_TOGGLES = [
   { key: "page_work", label: "Work", desc: "Resume / work experience" },
   { key: "page_school", label: "School", desc: "Education page" },
   { key: "page_blog", label: "Blog", desc: "Blog listing & posts" },
-  { key: "page_photos", label: "Photos", desc: "Photo gallery" },
+  { key: "page_photos", label: "Media", desc: "Media gallery" },
   { key: "page_contact", label: "Contact", desc: "Contact form (Say Hi)" },
   { key: "page_calendar", label: "Calendar", desc: "Events calendar & bookings" },
 ];

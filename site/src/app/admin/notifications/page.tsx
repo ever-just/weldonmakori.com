@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { Bell, ExternalLink, Send, Loader2, Check, AlertCircle } from "lucide-react";
 
-const NTFY_URL = "http://142.93.78.220:8083";
+const NTFY_URL = "/notify";
 const NTFY_TOPIC = "weldonmakori-updates";
+const NTFY_DISPLAY_URL = "weldonmakori.com/notify";
 
 export default function AdminNotifications() {
   const [title, setTitle] = useState("");
@@ -34,7 +35,7 @@ export default function AdminNotifications() {
         throw new Error("Failed to send");
       }
     } catch {
-      setStatus({ type: "error", text: "Failed to send notification. Try again." });
+      setStatus({ type: "error", text: "Failed to send notification. The ntfy service may be unreachable — check that it's running on the server." });
     } finally {
       setSending(false);
       setTimeout(() => setStatus(null), 5000);
@@ -136,10 +137,10 @@ export default function AdminNotifications() {
         <div className="p-4 rounded-sm border border-white/[0.06] bg-white/[0.02]">
           <p className="text-[11px] tracking-[0.2em] uppercase text-white/20 mb-3">How Users Subscribe</p>
           <div className="space-y-2 text-xs text-white/30 leading-relaxed">
-            <p><span className="text-white/50">Web:</span> Visit <span className="font-mono text-white/40">weldonmakori.com/notify/{NTFY_TOPIC}</span> in a browser</p>
-            <p><span className="text-white/50">Android:</span> Install ntfy app → Subscribe to <span className="font-mono text-white/40">{NTFY_TOPIC}</span> with server <span className="font-mono text-white/40">{NTFY_URL}</span></p>
+            <p><span className="text-white/50">Web:</span> Visit <span className="font-mono text-white/40">{NTFY_DISPLAY_URL}/{NTFY_TOPIC}</span> in a browser</p>
+            <p><span className="text-white/50">Android:</span> Install ntfy app → Subscribe to <span className="font-mono text-white/40">{NTFY_TOPIC}</span> with server <span className="font-mono text-white/40">https://{NTFY_DISPLAY_URL}</span></p>
             <p><span className="text-white/50">iOS:</span> Install ntfy app → Add subscription → Same as Android</p>
-            <p><span className="text-white/50">CLI:</span> <span className="font-mono text-white/40">curl -s {NTFY_URL}/{NTFY_TOPIC}/json</span></p>
+            <p><span className="text-white/50">CLI:</span> <span className="font-mono text-white/40">curl -s https://{NTFY_DISPLAY_URL}/{NTFY_TOPIC}/json</span></p>
           </div>
         </div>
       </div>

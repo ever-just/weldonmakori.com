@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import PhotosPage from "@/components/PhotosPage";
 
 export const metadata: Metadata = {
-  title: "Photos",
+  title: "Media",
   description:
-    "Browse Weldon Makori's photo gallery — moments captured along the way.",
+    "Browse Weldon Makori's media gallery — photos, videos & more.",
 };
 
 export default function Photos() {

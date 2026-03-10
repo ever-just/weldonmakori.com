@@ -12,7 +12,7 @@ const allLinks: { href: string; label: string; icon: LucideIcon; settingKey: str
   { href: "/resume", label: "Work", icon: Briefcase, settingKey: "page_work" },
   { href: "/education", label: "School", icon: GraduationCap, settingKey: "page_school" },
   { href: "/blog", label: "Blog", icon: Pen, settingKey: "page_blog" },
-  { href: "/photos", label: "Photos", icon: Camera, settingKey: "page_photos" },
+  { href: "/photos", label: "Media", icon: Camera, settingKey: "page_photos" },
   { href: "/calendar", label: "Calendar", icon: CalendarDays, settingKey: "page_calendar" },
   { href: "/contact", label: "Say Hi", icon: Mail, settingKey: "page_contact" },
   { href: "/call", label: "Call", icon: Video, settingKey: "page_call" },
