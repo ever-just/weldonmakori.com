@@ -69,7 +69,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     e.preventDefault();
     setError("");
     try {
-      await pb.collection("_superusers").authWithPassword(email, password);
+      await pb.collection("_superusers").authWithPassword(email, password, { requestKey: null });
       setAuthenticated(true);
     } catch (err: unknown) {
       console.error("Admin login error:", err);
@@ -137,7 +137,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               onClick={() => {
                 const resetEmail = prompt("Enter your admin email to reset password:");
                 if (resetEmail) {
-                  pb.collection("_superusers").requestPasswordReset(resetEmail)
+                  pb.collection("_superusers").requestPasswordReset(resetEmail, { requestKey: null })
                     .then(() => alert("If that email exists, a reset link has been sent."))
                     .catch(() => alert("If that email exists, a reset link has been sent."));
                 }
