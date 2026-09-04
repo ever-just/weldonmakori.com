@@ -1,3 +1,10 @@
+> ## ⛔️ ARCHIVED — not maintained
+>
+> This repository is read-only. It is kept for reference and history.
+> personal site for Weldon Makori. weldonmakori.com no longer resolves.
+>
+> Archived 2026-09-04.
+
 # weldonmakori.com
 
 Personal website for **Weldon Makori** — live at [weldonmakori.com](https://weldonmakori.com).
