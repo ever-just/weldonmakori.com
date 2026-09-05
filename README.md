@@ -1,73 +1,28 @@
 > ## ⛔️ ARCHIVED — not maintained
 >
 > This repository is read-only. It is kept for reference and history.
+>
 > personal site for Weldon Makori. weldonmakori.com no longer resolves.
 >
 > Archived 2026-09-04.
 
 # weldonmakori.com
 
-Personal website for **Weldon Makori** — live at [weldonmakori.com](https://weldonmakori.com).
+**What it was:** personal site for Weldon Makori. weldonmakori.com no longer resolves.
 
-## Tech Stack
+**Status:** archived 2026-09-04 · last push 2026-09-04 · TypeScript · no releases, no support. 
 
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS 4
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **Fonts:** Inter, JetBrains Mono
-- **Hosting:** Netlify
+## Structure and layout
 
-## Pages
+Top level as archived:
 
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Hero, stats, career highlights, CTA |
-| Education | `/education` | Full academic history (UST + Normandale), courses by term |
-| Resume | `/resume` | Work experience, ventures, skills |
-| 404 | `*` | Custom not-found page |
+- `.gitignore`
+- `README.md`
+- `data`/
+- `docs`/
+- `netlify.toml`
+- `research`/
+- `scripts`/
+- `site`/
 
-## Project Structure
-
-```
-WELDONMAKORI.COM/
-├── site/                    # Next.js application
-│   ├── src/
-│   │   ├── app/             # Pages and layout
-│   │   └── components/      # React components
-│   ├── netlify.toml         # Netlify build config
-│   └── package.json
-├── data/                    # Structured JSON data
-│   ├── education-complete.json
-│   └── work-history.json
-├── research/                # Source research files
-│   ├── WELDON_MAKORI_RESEARCH.md
-│   ├── SOCIAL_LINKS.md
-│   └── transcript
-├── docs/                    # Setup guides and design docs
-│   ├── SITEMAP_DESIGN.md
-│   ├── ANALYTICS_SETUP.md
-│   ├── GOOGLE_SEARCH_CONSOLE_SETUP.md
-│   └── SUBMIT_TO_GOOGLE.md
-└── README.md
-```
-
-## Development
-
-```bash
-cd site
-npm install
-npm run dev
-```
-
-## Deployment
-
-```bash
-cd site
-netlify deploy --prod
-```
-
-## Future Sections
-
-Blog, Gallery, Projects, Contact, Timeline, Links Hub, Now, Uses — see `docs/SITEMAP_DESIGN.md` for the full plan.
+Nothing here is deployed or built; there is no install or usage path.
