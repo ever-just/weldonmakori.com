@@ -1,23 +1,27 @@
-> [!WARNING]
-> ## ⛔️ ARCHIVED — no longer maintained
-> This repository is read-only and kept for reference and history. personal site for Weldon Makori. weldonmakori.com no longer resolves. Archived 2026-09-04.
+# weldon.lol
 
-# weldonmakori.com
+Personal site for Weldon Makori, live at [weldon.lol](https://weldon.lol).
 
-**What it was:** personal site for Weldon Makori. weldonmakori.com no longer resolves.
+Next.js 16 static export in [`site/`](site/), deployed to GitHub Pages via
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) — every push to
+`main` rebuilds and redeploys.
 
-**Why it is archived:** no longer maintained — archived because the work either shipped elsewhere or stopped; superseded by the live products listed at github.com/ever-just. Use the successor instead. Last push 2026-09-05 · TypeScript · no releases, no support.
+## Structure
 
-## Structure and layout
+- `site/` — the Next.js app (static export → `site/out`)
+- `data/` — work history and education source data
+- `docs/` — setup notes from the previous Netlify + PocketBase architecture
+- `research/` — personal research notes
+- `scripts/` — PocketBase collection setup scripts (legacy)
 
-Top level as archived:
+## Develop
 
-- `.gitignore`
-- `data`/
-- `docs`/
-- `netlify.toml`
-- `research`/
-- `scripts`/
-- `site`/
+```bash
+cd site
+npm ci
+npm run dev    # local dev
+npm run build  # static export to site/out
+```
 
-Nothing here is deployed or built; there is no install or usage path.
+The PocketBase backend (`src/lib/pocketbase.ts`) is currently offline;
+pages that depend on it render empty states.
