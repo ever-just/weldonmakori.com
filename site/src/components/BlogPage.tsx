@@ -1,41 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
-import { RecordModel } from "pocketbase";
-import pb from "@/lib/pocketbase";
+import { posts } from "@/data/posts";
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState<RecordModel[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const result = await pb.collection("blog_posts").getList(1, 50, {
-          sort: "-published_at",
-          filter: 'status = "published"',
-        });
-        setPosts(result.items);
-      } catch (err) {
-        console.error("Failed to fetch posts:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchPosts();
-  }, []);
-
-  const getImageUrl = (post: RecordModel) => {
-    if (post.cover_image) {
-      return pb.files.getURL(post, post.cover_image);
-    }
-    return null;
-  };
-
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString("en-US", {
       month: "long",
@@ -79,23 +50,7 @@ export default function BlogPage() {
 
       {/* Posts */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="animate-pulse">
-                <div className="aspect-[16/9] mb-6 rounded-sm bg-white/[0.04]" />
-                <div className="flex gap-3 mb-3">
-                  <div className="h-5 w-16 rounded-full bg-white/[0.04]" />
-                  <div className="h-5 w-20 rounded-full bg-white/[0.04]" />
-                </div>
-                <div className="h-7 w-3/4 rounded bg-white/[0.04] mb-3" />
-                <div className="h-4 w-full rounded bg-white/[0.03]" />
-                <div className="h-4 w-2/3 rounded bg-white/[0.03] mt-2" />
-                <div className="h-3 w-24 rounded bg-white/[0.03] mt-4" />
-              </div>
-            ))}
-          </div>
-        ) : posts.length === 0 ? (
+        {posts.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -107,10 +62,10 @@ export default function BlogPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
             {posts.map((post, i) => {
-              const imgUrl = getImageUrl(post);
+              const imgUrl = post.cover_image || null;
               return (
                 <motion.article
-                  key={post.id}
+                  key={post.slug}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

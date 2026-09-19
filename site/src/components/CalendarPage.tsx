@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Clock, MapPin, Calendar, Send, CheckCircle, AlertCircle } from "lucide-react";
-import { RecordModel } from "pocketbase";
-import pb from "@/lib/pocketbase";
+import { ChevronLeft, ChevronRight, Clock, MapPin, Calendar, Send, CheckCircle } from "lucide-react";
+import { events } from "@/data/events";
+import type { CalendarEvent } from "@/data/events";
+import { site } from "@/data/site";
 
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTHS = [
@@ -24,28 +25,10 @@ export default function CalendarPage() {
   const today = new Date();
   const [currentMonth, setCurrentMonth] = useState(today.getMonth());
   const [currentYear, setCurrentYear] = useState(today.getFullYear());
-  const [events, setEvents] = useState<RecordModel[]>([]);
-  const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [showBooking, setShowBooking] = useState(false);
   const [bookingForm, setBookingForm] = useState({ name: "", email: "", message: "", preferred_time: "" });
-  const [bookingStatus, setBookingStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  useEffect(() => {
-    async function fetchEvents() {
-      try {
-        const result = await pb.collection("events").getList(1, 200, {
-          sort: "start_at",
-        });
-        setEvents(result.items);
-      } catch (err) {
-        console.error("Failed to fetch events:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchEvents();
-  }, []);
+  const [bookingStatus, setBookingStatus] = useState<"idle" | "sent">("idle");
 
   const daysInMonth = getDaysInMonth(currentYear, currentMonth);
   const firstDay = getFirstDayOfMonth(currentYear, currentMonth);
@@ -69,7 +52,7 @@ export default function CalendarPage() {
   };
 
   const eventsByDate = useMemo(() => {
-    const map: Record<string, RecordModel[]> = {};
+    const map: Record<string, CalendarEvent[]> = {};
     events.forEach((evt) => {
       if (evt.start_at) {
         const d = new Date(evt.start_at);
@@ -103,26 +86,22 @@ export default function CalendarPage() {
   };
 
   const upcomingEvents = events
-    .filter((e) => new Date(e.start_at) >= today && e.status === "upcoming")
+    .filter((e) => new Date(e.start_at) >= today && (e.status ?? "upcoming") === "upcoming")
     .slice(0, 5);
 
-  const handleBooking = async (e: React.FormEvent) => {
+  const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    setBookingStatus("sending");
-    try {
-      await pb.collection("bookings").create({
-        name: bookingForm.name,
-        email: bookingForm.email,
-        message: bookingForm.message,
-        preferred_time: bookingForm.preferred_time || null,
-        status: "pending",
-      });
-      setBookingStatus("sent");
-      setBookingForm({ name: "", email: "", message: "", preferred_time: "" });
-    } catch (err) {
-      console.error("Booking error:", err);
-      setBookingStatus("error");
-    }
+    const subject = `Meeting request — ${bookingForm.name}`;
+    const body = [
+      `Name: ${bookingForm.name}`,
+      `Email: ${bookingForm.email}`,
+      ...(bookingForm.preferred_time ? [`Preferred time: ${bookingForm.preferred_time}`] : []),
+      "",
+      bookingForm.message,
+    ].join("\n");
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setBookingStatus("sent");
+    setBookingForm({ name: "", email: "", message: "", preferred_time: "" });
   };
 
   return (
@@ -160,12 +139,7 @@ export default function CalendarPage() {
 
       {/* Calendar + Sidebar */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
-        {loading ? (
-          <div className="flex justify-center py-20">
-            <div className="w-5 h-5 border border-white/20 border-t-white/60 rounded-full animate-spin" />
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Calendar */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -244,9 +218,9 @@ export default function CalendarPage() {
                       )}
                       {dayEvents.length > 0 && (
                         <div className="flex gap-0.5 mt-0.5">
-                          {dayEvents.slice(0, 3).map((evt) => (
+                          {dayEvents.slice(0, 3).map((evt, j) => (
                             <div
-                              key={evt.id}
+                              key={j}
                               className="w-1 h-1 rounded-full"
                               style={{ backgroundColor: evt.color || "rgba(255,255,255,0.4)" }}
                             />
@@ -269,9 +243,9 @@ export default function CalendarPage() {
                     <p className="text-sm text-white/20">No events on this day.</p>
                   ) : (
                     <div className="space-y-4">
-                      {selectedEvents.map((evt) => (
+                      {selectedEvents.map((evt, i) => (
                         <div
-                          key={evt.id}
+                          key={i}
                           className="flex gap-4 p-4 rounded-sm bg-white/[0.03] border border-white/[0.06]"
                         >
                           <div
@@ -321,8 +295,8 @@ export default function CalendarPage() {
                   <p className="text-sm text-white/20">No upcoming events.</p>
                 ) : (
                   <div className="space-y-4">
-                    {upcomingEvents.map((evt) => (
-                      <div key={evt.id} className="group">
+                    {upcomingEvents.map((evt, i) => (
+                      <div key={i} className="group">
                         <p className="text-sm text-white/60 font-light group-hover:text-white/80 transition-colors">
                           {evt.title}
                         </p>
@@ -351,8 +325,8 @@ export default function CalendarPage() {
                 ) : bookingStatus === "sent" ? (
                   <div className="text-center py-6">
                     <CheckCircle className="w-8 h-8 text-green-400/50 mx-auto mb-3" strokeWidth={1} />
-                    <p className="text-sm text-white/60">Request sent!</p>
-                    <p className="text-xs text-white/25 mt-1">I&apos;ll confirm soon.</p>
+                    <p className="text-sm text-white/60">Email draft opened</p>
+                    <p className="text-xs text-white/25 mt-1">Send it and I&apos;ll confirm soon.</p>
                     <button
                       onClick={() => { setBookingStatus("idle"); setShowBooking(false); }}
                       className="text-xs text-white/30 hover:text-white/50 mt-3 underline underline-offset-4 transition-colors"
@@ -399,20 +373,13 @@ export default function CalendarPage() {
                         placeholder="What would you like to discuss?"
                       />
                     </div>
-                    {bookingStatus === "error" && (
-                      <div className="flex items-center gap-2 text-red-400/70 text-xs">
-                        <AlertCircle className="w-3 h-3" />
-                        <span>Something went wrong.</span>
-                      </div>
-                    )}
                     <div className="flex items-center gap-4">
                       <button
                         type="submit"
-                        disabled={bookingStatus === "sending"}
-                        className="flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+                        className="flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors"
                       >
                         <Send className="w-3.5 h-3.5" strokeWidth={1.5} />
-                        {bookingStatus === "sending" ? "Sending..." : "Send request"}
+                        Send request
                       </button>
                       <button
                         type="button"
@@ -426,8 +393,7 @@ export default function CalendarPage() {
                 )}
               </div>
             </motion.div>
-          </div>
-        )}
+        </div>
       </section>
     </>
   );

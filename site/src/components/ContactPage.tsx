@@ -2,37 +2,22 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import pb from "@/lib/pocketbase";
+import { Send, CheckCircle } from "lucide-react";
+import { site } from "@/data/site";
 
-const socials = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/weldonmakori/" },
-  { label: "GitHub", href: "https://github.com/ever-just" },
-  { label: "X", href: "https://x.com/makori_weldon" },
-  { label: "Instagram", href: "https://www.instagram.com/actuallyweldon/" },
-];
+const socials = site.socials;
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
-    try {
-      await pb.collection("contact_submissions").create({
-        name: form.name,
-        email: form.email,
-        subject: form.subject,
-        message: form.message,
-        status: "new",
-      });
-      setStatus("sent");
-      setForm({ name: "", email: "", subject: "", message: "" });
-    } catch (err) {
-      console.error("Contact form error:", err);
-      setStatus("error");
-    }
+    const subject = form.subject || `Message from ${form.name} — weldon.lol`;
+    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent(true);
+    setForm({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
@@ -79,19 +64,19 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-3"
           >
-            {status === "sent" ? (
+            {sent ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center py-20 text-center"
               >
                 <CheckCircle className="w-12 h-12 text-green-400/60 mb-6" strokeWidth={1} />
-                <h3 className="text-2xl font-light text-white/90 mb-3">Message sent</h3>
+                <h3 className="text-2xl font-light text-white/90 mb-3">Email draft opened</h3>
                 <p className="text-sm text-white/30 mb-8">
-                  Thanks for reaching out. I&apos;ll get back to you soon.
+                  Send it from your email app and I&apos;ll get back to you soon.
                 </p>
                 <button
-                  onClick={() => setStatus("idle")}
+                  onClick={() => setSent(false)}
                   className="text-sm text-white/40 hover:text-white/70 transition-colors underline underline-offset-4"
                 >
                   Send another message
@@ -155,19 +140,11 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {status === "error" && (
-                  <div className="flex items-center gap-2 text-red-400/70 text-sm">
-                    <AlertCircle className="w-4 h-4" />
-                    <span>Something went wrong. Please try again.</span>
-                  </div>
-                )}
-
                 <button
                   type="submit"
-                  disabled={status === "sending"}
-                  className="group flex items-center gap-3 text-sm tracking-wide uppercase text-white/70 hover:text-white transition-colors duration-300 disabled:opacity-40"
+                  className="group flex items-center gap-3 text-sm tracking-wide uppercase text-white/70 hover:text-white transition-colors duration-300"
                 >
-                  <span>{status === "sending" ? "Sending..." : "Send message"}</span>
+                  <span>Send message</span>
                   <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
                 </button>
               </form>
@@ -187,10 +164,10 @@ export default function ContactPage() {
                 Email
               </p>
               <a
-                href="mailto:weldonmakori@outlook.com"
+                href={`mailto:${site.email}`}
                 className="text-sm text-white/50 hover:text-white/80 transition-colors"
               >
-                weldonmakori@outlook.com
+                {site.email}
               </a>
             </div>
 
@@ -198,7 +175,7 @@ export default function ContactPage() {
               <p className="text-[11px] tracking-[0.2em] uppercase text-white/30 mb-4">
                 Location
               </p>
-              <p className="text-sm text-white/50">Minneapolis, MN</p>
+              <p className="text-sm text-white/50">{site.location}</p>
             </div>
 
             <div>

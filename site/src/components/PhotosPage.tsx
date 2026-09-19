@@ -4,9 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { RecordModel } from "pocketbase";
-import pb from "@/lib/pocketbase";
-import { extractYouTubeId, embedUrl, thumbnailUrl } from "@/lib/youtube";
+import { photos, videos } from "@/data/media";
+import { embedUrl, thumbnailUrl } from "@/lib/youtube";
 
 interface MediaItem {
   id: string;
@@ -14,83 +13,34 @@ interface MediaItem {
   title?: string;
   caption?: string;
   // photo fields
-  image?: string;
-  collectionId?: string;
-  collectionName?: string;
+  src?: string;
   // video fields
   youtube_id?: string;
-  youtube_url?: string;
   description?: string;
 }
 
+const items: MediaItem[] = [
+  ...videos.map((v, i) => ({
+    id: `video-${i}`,
+    type: "video" as const,
+    title: v.title,
+    caption: v.description,
+    youtube_id: v.youtube_id,
+    description: v.description,
+  })),
+  ...photos.map((p, i) => ({
+    id: `photo-${i}`,
+    type: "photo" as const,
+    title: p.title,
+    caption: p.caption,
+    src: p.src,
+  })),
+];
+
 export default function PhotosPage() {
-  const [items, setItems] = useState<MediaItem[]>([]);
-  const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    async function fetchMedia() {
-      try {
-        const [photosResult, videosResult] = await Promise.allSettled([
-          pb.collection("photos").getList(1, 200, {
-            sort: "display_order,-created",
-            filter: "visible = true",
-          }),
-          pb.collection("videos").getList(1, 200, {
-            sort: "display_order,-created",
-            filter: "visible = true",
-          }),
-        ]);
-
-        const mediaItems: MediaItem[] = [];
-
-        // Add videos first (featured content)
-        if (videosResult.status === "fulfilled") {
-          for (const v of videosResult.value.items) {
-            mediaItems.push({
-              id: v.id,
-              type: "video",
-              title: v.title,
-              caption: v.description,
-              youtube_id: v.youtube_id || extractYouTubeId(v.youtube_url) || undefined,
-              youtube_url: v.youtube_url,
-              description: v.description,
-            });
-          }
-        }
-
-        // Add photos
-        if (photosResult.status === "fulfilled") {
-          for (const p of photosResult.value.items) {
-            mediaItems.push({
-              id: p.id,
-              type: "photo",
-              title: p.title,
-              caption: p.caption,
-              image: p.image,
-              collectionId: p.collectionId,
-              collectionName: p.collectionName,
-            });
-          }
-        }
-
-        setItems(mediaItems);
-      } catch (err) {
-        console.error("Failed to fetch media:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchMedia();
-  }, []);
-
-  const getImageUrl = (item: MediaItem, thumb?: string) => {
-    if (item.type === "photo" && item.image && item.collectionId) {
-      const record = { id: item.id, collectionId: item.collectionId, collectionName: item.collectionName || "photos" } as RecordModel;
-      return pb.files.getURL(record, item.image, thumb ? { thumb } : undefined);
-    }
-    return "";
-  };
+  const getImageUrl = (item: MediaItem) => item.src || "";
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -153,18 +103,7 @@ export default function PhotosPage() {
 
       {/* Gallery Grid */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
-        {loading ? (
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <div key={i} className="break-inside-avoid animate-pulse">
-                <div
-                  className="rounded-sm bg-white/[0.04]"
-                  style={{ aspectRatio: i % 3 === 0 ? "16/9" : i % 3 === 1 ? "4/3" : "1/1" }}
-                />
-              </div>
-            ))}
-          </div>
-        ) : items.length === 0 ? (
+        {items.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

@@ -1,47 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Tag } from "lucide-react";
-import { RecordModel } from "pocketbase";
-import pb from "@/lib/pocketbase";
+import type { BlogPost } from "@/data/posts";
 
-export default function BlogPostPage() {
-  const params = useParams();
+export default function BlogPostPage({ post }: { post: BlogPost }) {
   const router = useRouter();
-  const slug = params?.slug as string;
-  const [post, setPost] = useState<RecordModel | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [notFound, setNotFound] = useState(false);
-
-  useEffect(() => {
-    async function fetchPost() {
-      try {
-        const safeSlug = slug.replace(/"/g, '\\"');
-        const result = await pb.collection("blog_posts").getList(1, 1, {
-          filter: `slug = "${safeSlug}" && status = "published"`,
-        });
-        if (result.items.length > 0) {
-          setPost(result.items[0]);
-        } else {
-          setNotFound(true);
-        }
-      } catch {
-        setNotFound(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    if (slug) fetchPost();
-  }, [slug]);
-
-  const getImageUrl = (p: RecordModel) => {
-    if (p.cover_image) return pb.files.getURL(p, p.cover_image);
-    return null;
-  };
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString("en-US", {
@@ -51,29 +17,7 @@ export default function BlogPostPage() {
     });
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[60vh]">
-        <div className="w-5 h-5 border border-white/20 border-t-white/60 rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  if (notFound || !post) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-6">
-        <p className="text-white/30 text-lg font-light mb-4">Post not found</p>
-        <Link
-          href="/blog"
-          className="text-sm text-white/40 hover:text-white/70 transition-colors underline underline-offset-4"
-        >
-          Back to blog
-        </Link>
-      </div>
-    );
-  }
-
-  const imgUrl = getImageUrl(post);
+  const imgUrl = post.cover_image || null;
 
   return (
     <>

@@ -9,10 +9,11 @@ Next.js 16 static export in [`site/`](site/), deployed to GitHub Pages via
 ## Structure
 
 - `site/` — the Next.js app (static export → `site/out`)
+- `site/src/data/` — all content: `site.ts` (identity, socials, page toggles),
+  `posts.ts` (blog), `media.ts` (photos/videos), `events.ts` (calendar)
 - `data/` — work history and education source data
-- `docs/` — setup notes from the previous Netlify + PocketBase architecture
+- `docs/` — setup notes from the previous Netlify + PocketBase architecture (legacy)
 - `research/` — personal research notes
-- `scripts/` — PocketBase collection setup scripts (legacy)
 
 ## Develop
 
@@ -23,5 +24,6 @@ npm run dev    # local dev
 npm run build  # static export to site/out
 ```
 
-The PocketBase backend (`src/lib/pocketbase.ts`) is currently offline;
-pages that depend on it render empty states.
+There is no backend. Content lives in `site/src/data/` — edit a file, push,
+and the site rebuilds. Contact and booking forms compose a `mailto:` draft.
+The previous PocketBase/Listmonk/ntfy stack is documented under `docs/`.

@@ -5,24 +5,23 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, Briefcase, GraduationCap, Pen, Camera, Mail, CalendarDays, Video, type LucideIcon } from "lucide-react";
-import pb from "@/lib/pocketbase";
+import { site, type PageKey } from "@/data/site";
 
-const allLinks: { href: string; label: string; icon: LucideIcon; settingKey: string }[] = [
-  { href: "/", label: "Home", icon: Home, settingKey: "page_home" },
-  { href: "/resume", label: "Work", icon: Briefcase, settingKey: "page_work" },
-  { href: "/education", label: "School", icon: GraduationCap, settingKey: "page_school" },
-  { href: "/blog", label: "Blog", icon: Pen, settingKey: "page_blog" },
-  { href: "/photos", label: "Media", icon: Camera, settingKey: "page_photos" },
-  { href: "/calendar", label: "Calendar", icon: CalendarDays, settingKey: "page_calendar" },
-  { href: "/contact", label: "Say Hi", icon: Mail, settingKey: "page_contact" },
-  { href: "/call", label: "Call", icon: Video, settingKey: "page_call" },
+const allLinks: { href: string; label: string; icon: LucideIcon; settingKey: PageKey }[] = [
+  { href: "/", label: "Home", icon: Home, settingKey: "home" },
+  { href: "/resume", label: "Work", icon: Briefcase, settingKey: "work" },
+  { href: "/education", label: "School", icon: GraduationCap, settingKey: "school" },
+  { href: "/blog", label: "Blog", icon: Pen, settingKey: "blog" },
+  { href: "/photos", label: "Media", icon: Camera, settingKey: "photos" },
+  { href: "/calendar", label: "Calendar", icon: CalendarDays, settingKey: "calendar" },
+  { href: "/contact", label: "Say Hi", icon: Mail, settingKey: "contact" },
+  { href: "/call", label: "Call", icon: Video, settingKey: "call" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hiddenPages, setHiddenPages] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
@@ -30,22 +29,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  useEffect(() => {
-    pb.collection("site_settings")
-      .getFullList({ filter: 'key ~ "page_"' })
-      .then((records) => {
-        const hidden = new Set<string>();
-        records.forEach((r) => {
-          if (r.value === false) hidden.add(r.key as string);
-        });
-        setHiddenPages(hidden);
-      })
-      .catch(() => {});
-  }, []);
-
-  const links = allLinks.filter((l) => !hiddenPages.has(l.settingKey));
-
-  if (pathname.startsWith("/admin")) return null;
+  const links = allLinks.filter((l) => site.pages[l.settingKey]);
 
   return (
     <header

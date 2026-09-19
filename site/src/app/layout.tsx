@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -35,14 +34,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://weldonmakori.com",
+    url: "https://weldon.lol",
     siteName: "Weldon Makori",
     title: "Weldon Makori",
     description:
       "Weldon Makori's official personal website. Discover Weldon's professional work, projects, education, and more.",
     images: [
       {
-        url: "https://weldonmakori.com/og-image.png",
+        url: "https://weldon.lol/og-image.png",
         width: 1200,
         height: 630,
         alt: "Weldon Makori — Founder · Builder · Minneapolis",
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
       "Weldon Makori's official personal website.",
     creator: "@makori_weldon",
   },
-  metadataBase: new URL("https://weldonmakori.com"),
+  metadataBase: new URL("https://weldon.lol"),
 };
 
 export default function RootLayout({
@@ -72,11 +71,6 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
-        <Script
-          data-goatcounter="https://weldonmakori.com/stats/count"
-          src="https://weldonmakori.com/stats/count.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
