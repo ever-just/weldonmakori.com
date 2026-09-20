@@ -71,6 +71,27 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Weldon Makori",
+              url: "https://weldon.lol",
+              email: "mailto:weldonmakori@outlook.com",
+              jobTitle: "Founder",
+              worksFor: { "@type": "Organization", name: "Everjust", url: "https://everjust.co" },
+              address: { "@type": "PostalAddress", addressLocality: "Minneapolis", addressRegion: "MN", addressCountry: "US" },
+              sameAs: [
+                "https://www.linkedin.com/in/weldonmakori/",
+                "https://github.com/ever-just",
+                "https://x.com/makori_weldon",
+                "https://www.instagram.com/actuallyweldon/",
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );

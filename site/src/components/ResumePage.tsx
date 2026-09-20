@@ -129,11 +129,20 @@ export default function ResumePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-6">
             <a
-              href="mailto:weldonmakori@outlook.com"
+              href="/weldon-makori-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-sm text-white border-b border-white/20 pb-1 hover:border-white/60 transition-colors"
             >
-              Get in touch
+              Download PDF
               <ArrowUpRight size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+            </a>
+            <a
+              href="mailto:weldonmakori@outlook.com"
+              className="group inline-flex items-center gap-2 text-sm text-white/50 border-b border-white/10 pb-1 hover:border-white/30 hover:text-white/80 transition-colors"
+            >
+              Get in touch
+              <ArrowUpRight size={14} className="opacity-30 group-hover:opacity-70 transition-opacity" />
             </a>
             <a
               href="https://www.linkedin.com/in/weldonmakori/"

@@ -25,7 +25,9 @@ import {
   Github,
   Instagram,
   Sparkles,
+  type LucideIcon,
 } from "lucide-react";
+import { site } from "@/data/site";
 
 const timeline = [
   { year: "2016", role: "Co-Owner", place: "WellDone Windows", logo: "/logos/welldone-windows.svg", note: "Built a loyal subscription base", icon: Home },
@@ -40,7 +42,7 @@ const timeline = [
 const ventures = [
   { name: "Everjust", desc: "Technology & insurance optimization", icon: Shield, href: "https://everjust.co" },
   { name: "Custom AI Studio", desc: "AI consulting (prev. COO)", icon: Bot, href: "https://customaistudio.io" },
-  { name: "Custom Agents", desc: "AI agents for iMessage, email, phone", icon: Smartphone, href: undefined },
+  { name: "Custom Agents", desc: "AI agents for iMessage, email, phone", icon: Smartphone, href: "https://customagents.io" },
   { name: "Gasolina.ai", desc: "Talent management for creators", icon: Music, href: undefined },
   { name: "Minnesota.CEO", desc: "Celebrating MN business leaders", icon: Crown, href: undefined },
   { name: "SMS", desc: "Airbnb for community gatherings", icon: CalendarDays, href: undefined },
@@ -55,12 +57,14 @@ const expertise = [
   "Risk Management",
 ];
 
-const socials = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/weldonmakori/", icon: Linkedin },
-  { label: "GitHub", href: "https://github.com/ever-just", icon: Github },
-  { label: "X", href: "https://x.com/makori_weldon", icon: Sparkles },
-  { label: "Instagram", href: "https://www.instagram.com/actuallyweldon/", icon: Instagram },
-];
+const socialIcons: Record<string, LucideIcon> = {
+  LinkedIn: Linkedin,
+  GitHub: Github,
+  X: Sparkles,
+  Instagram: Instagram,
+};
+
+const socials = site.socials.map((s) => ({ ...s, icon: socialIcons[s.label] ?? Sparkles }));
 
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);

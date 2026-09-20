@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BlogPage from "@/components/BlogPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog",
   description:
     "Read Weldon Makori's thoughts on technology, business, startups, and the things he's building.",
